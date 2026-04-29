@@ -1,843 +1,2320 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Atakan Burak Yıldırım - Elektrik Elektronik Mühendisi. ECU tamiri, elektronik kart onarımı, akü sistemleri, kablo üretimi ve gömülü sistem hizmetleri. İstanbul Küçükçekmece.">
-<meta name="keywords" content="ECU tamiri istanbul, elektronik kart tamiri, kombi kart tamiri, akü BMS, CAN bus kablo, STM32, ESP32, araç beyin tamiri">
-<title>Atakan Burak Yıldırım | Elektronik Mühendislik & Teknik Servis</title>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Atakan Burak Yıldırım - Elektronik Teknik Servis","description":"ECU tamiri, elektronik kart onarımı, akü sistemleri ve kablo üretimi","telephone":"+905368159190","email":"atakanbyildirim@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Küçükçekmece","addressRegion":"İstanbul","addressCountry":"TR"},"url":"https://atakanbyildirim.github.io/atakan-burak-yildirim/"}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
---bg:#04091a;--bg2:#070f20;--bg3:#0a1628;
---card:#0c1a2e;--card2:#0f2040;
---accent:#00d4ff;--accent2:#0099cc;--purple:#7c3aed;--gold:#f59e0b;
---text:#dde6f0;--muted:#6b7f9a;--border:#152235;--white:#fff;
---grad:linear-gradient(135deg,#00d4ff,#7c3aed);
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-.container{max-width:1240px;margin:0 auto;padding:0 28px}
-.section-label{font-size:.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
-.section-label::before{content:'';width:24px;height:2px;background:var(--accent)}
-.section-title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:var(--white);line-height:1.2;margin-bottom:.75rem}
-.section-desc{color:var(--muted);max-width:580px;margin-bottom:3rem;font-size:.95rem}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.8rem;border-radius:8px;font-weight:700;font-size:.9rem;transition:.25s;cursor:pointer;border:none}
-.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04091a}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,212,255,.35)}
-.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border)}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-.btn-ghost{background:rgba(0,212,255,.08);color:var(--accent);border:1px solid rgba(0,212,255,.2)}
-.btn-ghost:hover{background:rgba(0,212,255,.15)}
-.fade-in{opacity:0;transform:translateY(28px);transition:opacity .6s,transform .6s}
-.fade-in.visible{opacity:1;transform:none}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YILDIRIM ELEKTRONİK | Endüstriyel Elektronik Kart, ECU Beyin ve Kart Tamiri</title>
+  <meta name="description" content="Elektronik kart tamiri, beyaz eşya teknik servis desteği, kombi teknik servis desteği, ECU beyin tamiri, akü-batarya sistemleri, endüstriyel elektronik arıza tespiti, haberleşme kablosu üretimi ve servis ön değerlendirme. Atakan Burak Yıldırım - Elektrik Elektronik Mühendisi." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "YILDIRIM ELEKTRONİK",
+      "description": "Elektronik kart tamiri, ECU beyin tamiri, beyaz eşya kartı tamiri, kombi kartı tamiri, akü-batarya sistemleri, endüstriyel elektronik arıza tespiti, haberleşme kablosu üretimi ve teknik servis destek hizmetleri.",
+      "image": "https://yildirim-elektronik.com/og-image.jpg",
+      "telephone": "+90 536 815 9190",
+      "email": "yildirimelektronikdestek@gmail.com",
+      "url": "https://yildirim-elektronik.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressRegion": "Küçükçekmece",
+        "addressCountry": "TR"
+      },
+      "areaServed": "İstanbul / Küçükçekmece",
+      "founder": "Atakan Burak Yıldırım",
+      "priceRange": "₺₺",
+      "sameAs": []
+    }
+  </script>
+  <style>
+    /* Daha sade, teknik servis odaklı görsel tema */
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2e;
+      --card: #111f35;
+      --card-2: #0d1c31;
+      --primary: #00d4ff;
+      --primary-2: #2ef2a5;
+      --warning: #ffd166;
+      --text: #eef6ff;
+      --muted: #9fb3c8;
+      --line: rgba(255,255,255,0.12);
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 22px;
+    }
 
-/* NAV */
-nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(4,9,26,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1240px;margin:0 auto;padding:0 28px}
-.nav-logo{font-weight:900;font-size:1.05rem;color:var(--white);display:flex;align-items:center;gap:.5rem}
-.nav-logo .logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),var(--purple));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:#04091a;font-weight:900}
-.nav-links{display:flex;gap:.25rem;list-style:none}
-.nav-links a{color:var(--muted);font-size:.85rem;font-weight:500;padding:.4rem .75rem;border-radius:6px;transition:.2s}
-.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.06)}
-.nav-cta{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04091a;padding:.45rem 1.1rem;border-radius:7px;font-weight:700;font-size:.85rem;transition:.2s}
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,212,255,.3)}
-.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.nav-toggle span{display:block;width:22px;height:2px;background:var(--text);transition:.3s;border-radius:2px}
-@media(max-width:900px){
-  .nav-links,.nav-cta{display:none}
-  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;width:100%;background:var(--bg2);border-top:1px solid var(--border);padding:1rem 0;gap:0}
-  .nav-links.open a{padding:.75rem 1.5rem;display:block;border-radius:0}
-  .nav-toggle{display:flex}
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;padding-top:64px;position:relative;overflow:hidden}
-.hero-noise{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");opacity:.4}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(21,34,53,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(21,34,53,.6) 1px,transparent 1px);background-size:50px 50px}
-.hero-glow1{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(0,212,255,.08) 0%,transparent 65%);top:-100px;right:-200px;pointer-events:none}
-.hero-glow2{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,.07) 0%,transparent 65%);bottom:-100px;left:-150px;pointer-events:none}
-.hero-content{position:relative;z-index:1;max-width:750px}
-.hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.2);border-radius:50px;padding:.45rem 1.1rem;font-size:.78rem;font-weight:600;color:var(--accent);margin-bottom:2rem;letter-spacing:.5px}
-.hero-badge .dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.hero h1{font-size:clamp(2.5rem,6vw,4.2rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:1.5rem;letter-spacing:-1.5px}
-.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:clamp(1rem,2vw,1.15rem);color:var(--muted);max-width:600px;margin-bottom:2.5rem;line-height:1.8}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:480px}
-.hstat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem}
-.hstat-num{font-size:1.7rem;font-weight:900;color:var(--accent);font-family:'JetBrains Mono',monospace;line-height:1}
-.hstat-lbl{font-size:.75rem;color:var(--muted);margin-top:.25rem}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* SERVICES TABS */
-.services{padding:100px 0}
-.srv-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem}
-.srv-tab{display:flex;align-items:center;gap:.5rem;padding:.6rem 1.2rem;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;border:1px solid transparent;transition:.2s;color:var(--muted)}
-.srv-tab:hover{color:var(--white);background:rgba(255,255,255,.05)}
-.srv-tab.active{color:var(--accent);background:rgba(0,212,255,.08);border-color:rgba(0,212,255,.2)}
-.srv-tab i{font-size:.95rem}
-.srv-panel{display:none}
-.srv-panel.active{display:block}
-.srv-header{margin-bottom:2rem}
-.srv-header h3{font-size:1.4rem;font-weight:800;color:var(--white);margin-bottom:.4rem}
-.srv-header p{color:var(--muted);font-size:.9rem}
-.srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
-.srv-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.75rem;cursor:pointer;transition:.25s;position:relative;overflow:hidden}
-.srv-card::after{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:.25s}
-.srv-card:hover{border-color:rgba(0,212,255,.3);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.5)}
-.srv-card:hover::after{opacity:.03}
-.srv-icon{width:48px;height:48px;border-radius:10px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.15);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--accent);margin-bottom:1rem}
-.srv-card h4{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
-.srv-card p{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
-.srv-card .srv-more{font-size:.78rem;color:var(--accent);font-weight:600;display:flex;align-items:center;gap:.3rem}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top left, rgba(0,212,255,0.20), transparent 34%),
+                  radial-gradient(circle at top right, rgba(46,242,165,0.15), transparent 30%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-/* FAULT SELECTOR */
-.fault{padding:100px 0;background:var(--bg2)}
-.fault-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.fault-options{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-.fault-opt{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:1rem 1.1rem;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:.75rem;font-size:.85rem;font-weight:500;color:var(--text)}
-.fault-opt:hover,.fault-opt.selected{border-color:var(--accent);background:rgba(0,212,255,.07);color:var(--accent)}
-.fault-opt i{font-size:1.1rem;color:var(--muted);transition:.2s;width:20px;text-align:center}
-.fault-opt:hover i,.fault-opt.selected i{color:var(--accent)}
-.fault-result{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;min-height:280px;display:flex;flex-direction:column;justify-content:center}
-.fault-result-empty{text-align:center;color:var(--muted)}
-.fault-result-empty i{font-size:3rem;opacity:.3;display:block;margin-bottom:1rem}
-.fault-answer{display:none}
-.fault-answer.show{display:block}
-.fault-answer h4{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.75rem}
-.fault-answer ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
-.fault-answer ul li{display:flex;align-items:flex-start;gap:.5rem;font-size:.85rem;color:var(--text)}
-.fault-answer ul li::before{content:'→';color:var(--accent);font-weight:700;flex-shrink:0}
-@media(max-width:768px){.fault-grid{grid-template-columns:1fr}.fault-options{grid-template-columns:1fr}}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-/* EQUIPMENT */
-.equip{padding:100px 0}
-.equip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem}
-.equip-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;transition:.2s}
-.equip-card:hover{border-color:rgba(124,58,237,.4);transform:translateY(-3px)}
-.equip-icon{font-size:2rem;margin-bottom:.75rem;display:block}
-.equip-card h4{font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
-.equip-card p{font-size:.78rem;color:var(--muted)}
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
 
-/* WHY */
-.why{padding:100px 0;background:var(--bg2)}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
-.why-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.75rem;display:flex;gap:1rem;transition:.2s}
-.why-card:hover{border-color:rgba(0,212,255,.25);transform:translateY(-3px)}
-.why-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);font-weight:700;opacity:.6;margin-bottom:.25rem}
-.why-icon{width:44px;height:44px;min-width:44px;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.1rem}
-.why-card h4{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.35rem}
-.why-card p{color:var(--muted);font-size:.82rem}
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
 
-/* PROCESS */
-.process{padding:100px 0}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
-.steps::before{content:'';position:absolute;top:34px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--accent),var(--purple));z-index:0}
-.step{padding:1.5rem .5rem;text-align:center;z-index:1;position:relative}
-.step-num{width:68px;height:68px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:900;color:var(--bg);margin:0 auto 1.1rem;box-shadow:0 0 0 4px var(--bg),0 0 0 6px rgba(0,212,255,.25);font-family:'JetBrains Mono',monospace}
-.step h4{font-size:.85rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
-.step p{color:var(--muted);font-size:.75rem;line-height:1.5}
-@media(max-width:900px){.steps{grid-template-columns:repeat(3,1fr);gap:1.5rem}.steps::before{display:none}}
-@media(max-width:600px){.steps{grid-template-columns:1fr 1fr}.step:last-child{grid-column:span 2}}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7,17,31,0.84);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
 
-/* GALLERY */
-.gallery{padding:100px 0;background:var(--bg2)}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.25rem}
-.gallery-item{background:var(--card);border:1px solid var(--border);border-radius:14px;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;color:var(--muted);font-size:.85rem;cursor:pointer;transition:.25s;overflow:hidden;position:relative}
-.gallery-item:hover{border-color:rgba(0,212,255,.3);transform:scale(1.02)}
-.gallery-item i{font-size:2.5rem;color:rgba(0,212,255,.3)}
-.gallery-badge{position:absolute;top:.65rem;left:.65rem;background:rgba(0,212,255,.12);border:1px solid rgba(0,212,255,.2);color:var(--accent);font-size:.7rem;padding:.2rem .55rem;border-radius:50px;font-weight:600}
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-/* FAQ */
-.faq{padding:100px 0}
-.faq-list{max-width:820px;display:flex;flex-direction:column;gap:.75rem}
-.faq-item{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:.2s}
-.faq-item.open{border-color:rgba(0,212,255,.25)}
-.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.4rem;cursor:pointer;font-weight:600;color:var(--white);font-size:.9rem;gap:1rem}
-.faq-q i{color:var(--accent);transition:.3s;flex-shrink:0;font-size:.85rem}
-.faq-item.open .faq-q i{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:.3s}
-.faq-a-inner{padding:0 1.4rem 1.1rem;color:var(--muted);font-size:.85rem;line-height:1.7}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+    }
 
-/* CONTACT */
-.contact{padding:100px 0;background:var(--bg2)}
-.contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;align-items:start}
-.contact-info{display:flex;flex-direction:column;gap:1.1rem}
-.cinfo-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;display:flex;gap:.85rem;align-items:flex-start}
-.cinfo-icon{width:40px;height:40px;min-width:40px;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.15);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.9rem}
-.cinfo-card h4{font-size:.82rem;font-weight:600;color:var(--white);margin-bottom:.2rem}
-.cinfo-card p{color:var(--muted);font-size:.82rem}
-.wa-btn{display:flex;align-items:center;justify-content:center;gap:.65rem;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:.9rem;border-radius:11px;font-weight:700;font-size:.95rem;transition:.25s;width:100%}
-.wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.3)}
-.contact-form{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem}
-.contact-form h3{font-size:1.2rem;font-weight:800;color:var(--white);margin-bottom:1.5rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.fg{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.9rem}
-.fg label{font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
-.fg input,.fg select,.fg textarea{background:var(--bg3);border:1.5px solid var(--border);border-radius:8px;padding:.7rem .9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:.88rem;transition:.2s;outline:none}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,212,255,.08)}
-.fg select option{background:var(--bg3)}
-.fg textarea{resize:vertical;min-height:110px}
-.form-msg{display:none;margin-top:1rem;padding:.9rem;border-radius:8px;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.25);color:var(--accent);font-size:.85rem;text-align:center}
-@media(max-width:768px){.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #06111f;
+      font-weight: 900;
+      box-shadow: 0 10px 25px rgba(0,212,255,0.25);
+    }
 
-/* FOOTER */
-footer{padding:2.5rem 0;border-top:1px solid var(--border)}
-.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.footer-logo{font-weight:900;font-size:1rem;color:var(--white)}
-.footer-logo span{color:var(--accent)}
-footer p{color:var(--muted);font-size:.8rem}
-.footer-links{display:flex;gap:1.25rem;flex-wrap:wrap}
-.footer-links a{color:var(--muted);font-size:.8rem;transition:.2s}
-.footer-links a:hover{color:var(--accent)}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-/* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(4,9,26,.85);backdrop-filter:blur(8px);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem}
-.modal-overlay.open{display:flex}
-.modal{background:var(--card);border:1px solid rgba(0,212,255,.2);border-radius:20px;padding:2.5rem;max-width:560px;width:100%;position:relative;max-height:90vh;overflow-y:auto}
-.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.06);border:none;color:var(--muted);width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:1rem;transition:.2s}
-.modal-close:hover{color:var(--white);background:rgba(255,255,255,.1)}
-.modal h3{font-size:1.3rem;font-weight:800;color:var(--white);margin-bottom:1.5rem}
-.modal-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
-.modal-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:.88rem;color:var(--text);background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.08);border-radius:8px;padding:.7rem .9rem}
-.modal-list li i{color:var(--accent);font-size:.9rem;margin-top:.1rem;flex-shrink:0}
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
-/* SCROLL TOP */
-.scroll-top{position:fixed;bottom:1.75rem;right:1.75rem;width:42px;height:42px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:50%;color:var(--bg);font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,212,255,.35);opacity:0;transform:translateY(16px);transition:.3s;z-index:998}
-.scroll-top.visible{opacity:1;transform:none}
-</style>
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 19px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #04101d;
+      border: none;
+      box-shadow: 0 15px 35px rgba(0,212,255,0.22);
+    }
+
+    .btn-small {
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 92px 0 68px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.05);
+      font-size: 14px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--primary-2);
+      box-shadow: 0 0 18px var(--primary-2);
+    }
+
+    h1 {
+      font-size: clamp(39px, 5.7vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -2.4px;
+      margin-bottom: 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 710px;
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      max-width: 780px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .device-card {
+      position: relative;
+      min-height: 470px;
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03)),
+        var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 28px;
+    }
+
+    .circuit {
+      position: absolute;
+      inset: 0;
+      opacity: 0.28;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+    }
+
+    .chip {
+      position: relative;
+      margin: 70px auto 28px;
+      width: 210px;
+      height: 210px;
+      border-radius: 26px;
+      background: linear-gradient(145deg, #10233b, #071426);
+      border: 1px solid rgba(255,255,255,0.22);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 35px rgba(0,212,255,0.10), 0 0 60px rgba(0,212,255,0.14);
+    }
+
+    .chip::before,
+    .chip::after {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(0,212,255,0.35);
+      border-radius: 18px;
+    }
+
+    .chip span {
+      font-size: 54px;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -3px;
+    }
+
+    .floating-card {
+      position: relative;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(7,17,31,0.78);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .floating-card strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .floating-card p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-head {
+      max-width: 790px;
+      margin-bottom: 34px;
+    }
+
+    .section-head.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -1.4px;
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .search-panel {
+      padding: 24px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+      margin-bottom: 22px;
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(7,17,31,0.62);
+      color: var(--text);
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: rgba(0,212,255,0.6);
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .filter-btn {
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: #04101d;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+    }
+
+    .result-count {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.075);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(0,212,255,0.12);
+      border: 1px solid rgba(0,212,255,0.25);
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 4px 0 18px;
+    }
+
+    .tag {
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .card-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .guide {
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.035), transparent);
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .guide-item {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+    }
+
+    .guide-item h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .guide-item ul {
+      padding-left: 19px;
+      color: var(--muted);
+    }
+
+    .guide-item li {
+      margin: 7px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .profile-card {
+      padding: 32px;
+      border-radius: 30px;
+      background: linear-gradient(145deg, rgba(0,212,255,0.15), rgba(46,242,165,0.08));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .avatar {
+      width: 112px;
+      height: 112px;
+      border-radius: 30px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #06111f;
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 24px;
+    }
+
+    .profile-card h2 {
+      font-size: 32px;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .about-text {
+      padding: 34px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 16px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      position: relative;
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(46,242,165,0.14);
+      color: var(--primary-2);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .step h3 {
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .warning-box {
+      margin-top: 24px;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,209,102,0.34);
+      background: rgba(255,209,102,0.08);
+    }
+
+    .warning-box strong {
+      color: var(--warning);
+    }
+
+    .warning-box p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      padding: 30px;
+      border-radius: 30px;
+      background: linear-gradient(145deg, rgba(0,212,255,0.14), rgba(255,255,255,0.055));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .contact-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(7,17,31,0.45);
+      border: 1px solid var(--line);
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .contact-item strong {
+      font-size: 16px;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(7,17,31,0.60);
+      color: var(--text);
+      outline: none;
+    }
+
+    select option {
+      background: #0d1b2e;
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: rgba(0,212,255,0.55);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .fault-grid,
+    .equipment-grid,
+    .gallery-grid,
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .fault-card,
+    .equipment-card,
+    .gallery-card,
+    .faq-card {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+    }
+
+    .fault-card {
+      text-align: left;
+      color: var(--text);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .fault-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(0,212,255,0.34);
+    }
+
+    .fault-card strong,
+    .equipment-card strong,
+    .gallery-card strong {
+      display: block;
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .fault-card span,
+    .equipment-card span,
+    .gallery-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .equipment-card ul,
+    .faq-card ul {
+      margin-top: 10px;
+      padding-left: 19px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .equipment-card li,
+    .faq-card li {
+      margin: 6px 0;
+    }
+
+    .gallery-placeholder {
+      height: 160px;
+      border-radius: 18px;
+      margin-bottom: 16px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(0,212,255,0.16), rgba(46,242,165,0.09)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.07) 0 8px, transparent 8px 16px);
+      border: 1px dashed rgba(255,255,255,0.22);
+      color: var(--muted);
+      font-weight: 700;
+      text-align: center;
+      padding: 18px;
+    }
+
+    .faq-card details {
+      border-bottom: 1px solid var(--line);
+      padding: 15px 0;
+    }
+
+    .faq-card details:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .faq-card summary {
+      cursor: pointer;
+      color: var(--text);
+      font-weight: 700;
+      list-style-position: outside;
+    }
+
+    .faq-card p {
+      color: var(--muted);
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .detail-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(2,8,16,0.72);
+      backdrop-filter: blur(12px);
+    }
+
+    .detail-modal.open {
+      display: flex;
+    }
+
+    .detail-content {
+      width: min(760px, 100%);
+      max-height: min(760px, 88vh);
+      overflow: auto;
+      padding: 28px;
+      border-radius: 28px;
+      background: #0d1b2e;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .detail-header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .detail-header h3 {
+      font-size: 28px;
+      line-height: 1.15;
+    }
+
+    .detail-close {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 22px;
+    }
+
+    .detail-content ul {
+      padding-left: 20px;
+      color: var(--muted);
+      margin: 14px 0 20px;
+    }
+
+    .detail-content li {
+      margin: 8px 0;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 90;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #25d366, #2ef2a5);
+      color: #04101d;
+      font-weight: 900;
+      box-shadow: 0 18px 35px rgba(37,211,102,0.24);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .device-card {
+        min-height: 390px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .hero {
+        padding-top: 62px;
+      }
+
+      .stats,
+      .cards,
+      .steps,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -1.4px;
+      }
+
+      .chip {
+        width: 175px;
+        height: 175px;
+      }
+
+      .contact-box,
+      .about-text,
+      .profile-card,
+      .search-panel {
+        padding: 22px;
+      }
+    }
+  
+    /* Sade servis teması: koyu neon yazılım görünümünü azaltır */
+    :root {
+      --bg: #f5f7fa;
+      --bg-soft: #eef2f6;
+      --card: #ffffff;
+      --card-2: #f8fafc;
+      --primary: #1f5f9f;
+      --primary-2: #f59e0b;
+      --warning: #b45309;
+      --text: #102033;
+      --muted: #64748b;
+      --line: rgba(15, 23, 42, 0.12);
+      --shadow: 0 16px 42px rgba(15, 23, 42, 0.10);
+      --radius: 18px;
+    }
+
+    body {
+      background: var(--bg) !important;
+      color: var(--text);
+    }
+
+    header {
+      background: rgba(255,255,255,0.94) !important;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+    }
+
+    .logo-mark,
+    .btn-primary,
+    .filter-btn:hover,
+    .filter-btn.active,
+    .avatar {
+      background: var(--primary) !important;
+      color: #ffffff !important;
+      box-shadow: 0 10px 24px rgba(31,95,159,0.16) !important;
+    }
+
+    .btn,
+    .stat,
+    .search-panel,
+    .card,
+    .guide-item,
+    .profile-card,
+    .about-text,
+    .step,
+    .contact-box,
+    .contact-item,
+    .fault-card,
+    .equipment-card,
+    .gallery-card,
+    .faq-card,
+    .detail-content,
+    .floating-card {
+      background: #ffffff !important;
+      color: var(--text) !important;
+      border-color: var(--line) !important;
+      box-shadow: 0 10px 28px rgba(15,23,42,0.06);
+    }
+
+    .guide,
+    .about {
+      background: var(--bg-soft) !important;
+    }
+
+    .device-card {
+      background: linear-gradient(145deg, #ffffff, #eef2f6) !important;
+      box-shadow: var(--shadow) !important;
+    }
+
+    .chip {
+      background: linear-gradient(145deg, #ffffff, #e8eef5) !important;
+      box-shadow: inset 0 0 24px rgba(31,95,159,0.08), 0 14px 30px rgba(15,23,42,0.08) !important;
+    }
+
+    .chip span {
+      color: var(--primary) !important;
+    }
+
+    .circuit {
+      opacity: 0.18 !important;
+    }
+
+    .eyebrow,
+    .tag,
+    .badge {
+      background: #f1f5f9 !important;
+      border-color: var(--line) !important;
+    }
+
+    input,
+    textarea,
+    select,
+    .search-input {
+      background: #ffffff !important;
+      color: var(--text) !important;
+      border-color: var(--line) !important;
+    }
+
+    .icon {
+      background: rgba(31,95,159,0.08) !important;
+      border-color: rgba(31,95,159,0.20) !important;
+    }
+
+    .step-number {
+      background: rgba(31,95,159,0.08) !important;
+      color: var(--primary) !important;
+    }
+
+    .warning-box {
+      background: #fffbeb !important;
+      border-color: rgba(180,83,9,0.28) !important;
+    }
+
+    .gallery-placeholder {
+      background: #f1f5f9 !important;
+      border-color: rgba(15,23,42,0.18) !important;
+    }
+
+    .whatsapp-float {
+      background: #25d366 !important;
+      color: #06210f !important;
+    }
+
+    /* Form select okunabilirlik düzeltmesi */
+    select,
+    select:focus,
+    select:active {
+      background-color: #ffffff !important;
+      color: #102033 !important;
+      border: 1px solid rgba(15, 23, 42, 0.16) !important;
+      appearance: auto;
+      -webkit-appearance: menulist;
+      -moz-appearance: menulist;
+    }
+
+    select option {
+      background-color: #ffffff !important;
+      color: #102033 !important;
+    }
+
+    select option:checked,
+    select option:hover {
+      background-color: #1f5f9f !important;
+      color: #ffffff !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #64748b !important;
+      opacity: 1;
+    }
+
+    .contact-box form .btn-primary {
+      background: #1f5f9f !important;
+      color: #ffffff !important;
+      border: 1px solid #1f5f9f !important;
+    }
+
+    .contact-box form .btn-primary:hover {
+      background: #174a7d !important;
+      border-color: #174a7d !important;
+    }
+
+    /* Premium mühendislik teması - koyu, sade, okunaklı */
+    :root {
+      --bg: #0f1724;
+      --bg-soft: #121c2b;
+      --card: #172235;
+      --card-2: #1d2b41;
+      --primary: #3b82f6;
+      --primary-2: #d9a441;
+      --warning: #f59e0b;
+      --text: #f4f7fb;
+      --muted: #aebbd0;
+      --line: rgba(255,255,255,0.12);
+      --shadow: 0 18px 45px rgba(0,0,0,0.32);
+      --radius: 18px;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.14), transparent 32%),
+        radial-gradient(circle at top right, rgba(217,164,65,0.10), transparent 28%),
+        var(--bg) !important;
+      color: var(--text) !important;
+    }
+
+    header {
+      background: rgba(15,23,36,0.92) !important;
+      border-bottom: 1px solid var(--line) !important;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.20) !important;
+    }
+
+    .logo,
+    .nav-links a,
+    h1,
+    h2,
+    h3,
+    strong,
+    summary {
+      color: var(--text) !important;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-2) !important;
+    }
+
+    .logo-mark,
+    .btn-primary,
+    .filter-btn:hover,
+    .filter-btn.active,
+    .avatar {
+      background: linear-gradient(135deg, var(--primary), #1d4ed8) !important;
+      color: #ffffff !important;
+      box-shadow: 0 12px 26px rgba(59,130,246,0.22) !important;
+    }
+
+    .btn {
+      background: rgba(255,255,255,0.06) !important;
+      color: var(--text) !important;
+      border: 1px solid var(--line) !important;
+    }
+
+    .btn:hover {
+      border-color: rgba(217,164,65,0.55) !important;
+    }
+
+    .stat,
+    .search-panel,
+    .card,
+    .guide-item,
+    .profile-card,
+    .about-text,
+    .step,
+    .contact-box,
+    .contact-item,
+    .fault-card,
+    .equipment-card,
+    .gallery-card,
+    .faq-card,
+    .detail-content,
+    .floating-card,
+    .quick-card,
+    .capability-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.035)) !important;
+      color: var(--text) !important;
+      border: 1px solid var(--line) !important;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.20) !important;
+    }
+
+    .card:hover,
+    .fault-card:hover,
+    .quick-card:hover {
+      background: linear-gradient(180deg, rgba(59,130,246,0.13), rgba(255,255,255,0.04)) !important;
+      border-color: rgba(59,130,246,0.35) !important;
+    }
+
+    .guide,
+    .about,
+    #teknik-servis,
+    #yetkinlikler {
+      background: var(--bg-soft) !important;
+    }
+
+    .device-card {
+      background: linear-gradient(145deg, #18243a, #101928) !important;
+      box-shadow: var(--shadow) !important;
+    }
+
+    .chip {
+      background: linear-gradient(145deg, #1d2b41, #101928) !important;
+      box-shadow: inset 0 0 28px rgba(59,130,246,0.12), 0 16px 34px rgba(0,0,0,0.28) !important;
+    }
+
+    .chip span {
+      color: var(--primary-2) !important;
+    }
+
+    .eyebrow,
+    .tag,
+    .badge {
+      background: rgba(255,255,255,0.07) !important;
+      color: var(--muted) !important;
+      border: 1px solid var(--line) !important;
+    }
+
+    .icon,
+    .step-number {
+      background: rgba(59,130,246,0.13) !important;
+      border-color: rgba(59,130,246,0.25) !important;
+      color: var(--primary-2) !important;
+    }
+
+    input,
+    textarea,
+    select,
+    .search-input {
+      background-color: #101928 !important;
+      color: var(--text) !important;
+      border: 1px solid rgba(255,255,255,0.16) !important;
+    }
+
+    select option {
+      background-color: #101928 !important;
+      color: #f4f7fb !important;
+    }
+
+    select option:checked {
+      background-color: #2563eb !important;
+      color: #ffffff !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #8fa1ba !important;
+      opacity: 1 !important;
+    }
+
+    .contact-box form .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #1d4ed8) !important;
+      color: #ffffff !important;
+      border: none !important;
+    }
+
+    .warning-box {
+      background: rgba(245,158,11,0.10) !important;
+      border-color: rgba(245,158,11,0.35) !important;
+    }
+
+    .cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .quick-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 230px;
+      padding: 26px;
+      border-radius: 22px;
+      transition: 0.2s ease;
+    }
+
+    .quick-card strong {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .quick-card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .quick-card ul,
+    .capability-card ul {
+      color: var(--muted);
+      padding-left: 18px;
+      margin: 0 0 18px;
+    }
+
+    .quick-card li,
+    .capability-card li {
+      margin: 6px 0;
+    }
+
+    .quick-card .btn {
+      margin-top: auto;
+      width: fit-content;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .capability-card {
+      padding: 26px;
+      border-radius: 22px;
+    }
+
+    .capability-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .whatsapp-float {
+      background: #25d366 !important;
+      color: #06210f !important;
+    }
+
+    @media (max-width: 980px) {
+      .quick-grid,
+      .capability-grid,
+      .cards {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* Açık gri premium mühendislik teması - beyazdan koyu, göz yormayan */
+    :root {
+      --bg: #e9edf2;
+      --bg-soft: #dde4ec;
+      --card: #f7f9fc;
+      --card-2: #eef3f8;
+      --primary: #1f5f9f;
+      --primary-2: #b7791f;
+      --warning: #b45309;
+      --text: #122033;
+      --muted: #58677c;
+      --line: rgba(15, 23, 42, 0.14);
+      --shadow: 0 14px 34px rgba(15, 23, 42, 0.12);
+      --radius: 18px;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(31,95,159,0.10), transparent 30%),
+        radial-gradient(circle at top right, rgba(183,121,31,0.08), transparent 26%),
+        var(--bg) !important;
+      color: var(--text) !important;
+    }
+
+    header {
+      background: rgba(247,249,252,0.94) !important;
+      border-bottom: 1px solid rgba(15,23,42,0.12) !important;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.08) !important;
+    }
+
+    .logo,
+    .nav-links a,
+    h1,
+    h2,
+    h3,
+    strong,
+    summary,
+    .chip span {
+      color: var(--text) !important;
+    }
+
+    .section-head p,
+    .hero p,
+    .card p,
+    .quick-card p,
+    .guide-item li,
+    .capability-card li,
+    .faq-card p,
+    .tag,
+    .badge,
+    .result-count,
+    .contact-item span,
+    .stat span {
+      color: var(--muted) !important;
+    }
+
+    .stat,
+    .search-panel,
+    .card,
+    .guide-item,
+    .profile-card,
+    .about-text,
+    .step,
+    .contact-box,
+    .contact-item,
+    .fault-card,
+    .equipment-card,
+    .gallery-card,
+    .faq-card,
+    .detail-content,
+    .floating-card,
+    .quick-card,
+    .capability-card {
+      background: linear-gradient(180deg, #f8fafc, #eef3f8) !important;
+      color: var(--text) !important;
+      border: 1px solid var(--line) !important;
+      box-shadow: var(--shadow) !important;
+    }
+
+    .card:hover,
+    .fault-card:hover,
+    .quick-card:hover {
+      background: linear-gradient(180deg, #ffffff, #eaf1f8) !important;
+      border-color: rgba(31,95,159,0.34) !important;
+    }
+
+    .guide,
+    .about,
+    #teknik-servis,
+    #yetkinlikler {
+      background: var(--bg-soft) !important;
+    }
+
+    .device-card {
+      background: linear-gradient(145deg, #f8fafc, #dfe7ef) !important;
+      box-shadow: var(--shadow) !important;
+    }
+
+    .chip {
+      background: linear-gradient(145deg, #ffffff, #e1e9f2) !important;
+      border-color: rgba(15,23,42,0.16) !important;
+      box-shadow: inset 0 0 22px rgba(31,95,159,0.08), 0 14px 28px rgba(15,23,42,0.10) !important;
+    }
+
+    .chip span {
+      color: var(--primary) !important;
+    }
+
+    .floating-card {
+      background: rgba(248,250,252,0.92) !important;
+    }
+
+    .eyebrow,
+    .tag,
+    .badge,
+    .filter-btn {
+      background: #eef3f8 !important;
+      color: var(--muted) !important;
+      border: 1px solid var(--line) !important;
+    }
+
+    .btn {
+      background: #f8fafc !important;
+      color: var(--text) !important;
+      border: 1px solid var(--line) !important;
+    }
+
+    .btn-primary,
+    .logo-mark,
+    .avatar,
+    .filter-btn:hover,
+    .filter-btn.active,
+    .contact-box form .btn-primary {
+      background: linear-gradient(135deg, #1f5f9f, #174a7d) !important;
+      color: #ffffff !important;
+      border: none !important;
+      box-shadow: 0 12px 24px rgba(31,95,159,0.20) !important;
+    }
+
+    .icon,
+    .step-number {
+      background: rgba(31,95,159,0.10) !important;
+      color: var(--primary) !important;
+      border-color: rgba(31,95,159,0.22) !important;
+    }
+
+    input,
+    textarea,
+    select,
+    .search-input {
+      background-color: #f8fafc !important;
+      color: var(--text) !important;
+      border: 1px solid rgba(15,23,42,0.16) !important;
+    }
+
+    select option {
+      background-color: #f8fafc !important;
+      color: #122033 !important;
+    }
+
+    select option:checked {
+      background-color: #1f5f9f !important;
+      color: #ffffff !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #6b7a90 !important;
+      opacity: 1 !important;
+    }
+
+    .warning-box {
+      background: #f8efd9 !important;
+      border-color: rgba(180,83,9,0.25) !important;
+    }
+
+    .whatsapp-float {
+      background: #25d366 !important;
+      color: #06210f !important;
+    }
+
+    .form-status {
+      display: none;
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .form-status.success {
+      display: block;
+      background: rgba(34,197,94,0.12);
+      color: #166534;
+      border: 1px solid rgba(34,197,94,0.35);
+    }
+
+    .form-status.error {
+      display: block;
+      background: rgba(239,68,68,0.10);
+      color: #991b1b;
+      border: 1px solid rgba(239,68,68,0.35);
+    }
+  </style>
 </head>
 <body>
-<nav id="navbar">
-  <div class="nav-inner">
-    <a class="nav-logo" href="#hero"><span class="logo-icon">A</span>&nbsp;ABY Elektronik</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">Hakkımda</a></li>
-      <li><a href="#services">Hizmetler</a></li>
-      <li><a href="#fault">Arıza Seçici</a></li>
-      <li><a href="#equip">Ekipman</a></li>
-      <li><a href="#faq">SSS</a></li>
-      <li><a href="#contact">İletişim</a></li>
-    </ul>
-    <a href="#contact" class="nav-cta">İletişime Geç</a>
-    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-
-<section class="hero" id="hero">
-  <div class="hero-noise"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-glow1"></div>
-  <div class="hero-glow2"></div>
-  <div class="container hero-content">
-    <div class="hero-badge"><span class="dot"></span>İstanbul &bull; Küçükçekmece &bull; Aktif Servis</div>
-    <h1>Atakan Burak<br><span class="grad">Yıldırım</span></h1>
-    <p class="hero-sub">Elektrik Elektronik Mühendisi &mdash; ECU / araç elektroniği, elektronik kart onarımı, akü sistemleri, kablo üretimi ve gömülü sistem geliştirme alanlarında uzman teknik servis.</p>
-    <div class="hero-btns">
-      <a href="#services" class="btn btn-primary"><i class="fas fa-layer-group"></i> Tüm Hizmetler</a>
-      <a href="#fault" class="btn btn-outline"><i class="fas fa-stethoscope"></i> Arıza Tespiti</a>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="logo" aria-label="Ana sayfa">
+        <span class="logo-mark">YE</span>
+        <span>YILDIRIM ELEKTRONİK</span>
+      </a>
+      <nav class="nav-links" aria-label="Ana menü">
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#teknik-servis">Teknik Servis</a>
+        <a href="#ariza-secici">Arıza Seç</a>
+        <a href="#yetkinlikler">Yetkinlikler</a>
+        <a href="#sss">SSS</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+      <a class="btn btn-primary" href="#iletisim">Destek Al</a>
     </div>
-    <div class="hero-stats">
-      <div class="hstat"><div class="hstat-num">5+</div><div class="hstat-lbl">Yıllık Deneyim</div></div>
-      <div class="hstat"><div class="hstat-num">5</div><div class="hstat-lbl">Uzmanlık Kategorisi</div></div>
-      <div class="hstat"><div class="hstat-num">100%</div><div class="hstat-lbl">Mühendislik Analizi</div></div>
-    </div>
-  </div>
-</section>
+  </header>
 
-<section class="about" style="padding:100px 0;background:var(--bg2)" id="about">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center" class="about-grid-r">
-      <div class="fade-in">
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2.5rem;text-align:center">
-          <div style="font-size:4.5rem;color:var(--accent);margin-bottom:1rem"><i class="fas fa-user-tie"></i></div>
-          <div style="font-size:1.15rem;font-weight:800;color:var(--white)">Atakan Burak Yıldırım</div>
-          <div style="color:var(--accent);font-size:.82rem;font-weight:600;margin:.3rem 0 1.5rem;letter-spacing:.5px">ELEKTRİK ELEKTRONİK MÜHENDİSİ</div>
-          <div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center">
-            <span style="background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.18);color:var(--accent);padding:.3rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600">ECU Tamiri</span>
-            <span style="background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.18);color:var(--accent);padding:.3rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600">Kart Onarımı</span>
-            <span style="background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);color:#a78bfa;padding:.3rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600">STM32</span>
-            <span style="background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);color:#a78bfa;padding:.3rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600">ESP32</span>
-            <span style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);color:var(--gold);padding:.3rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600">BMS</span>
-            <span style="background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.18);color:var(--accent);padding:.3rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600">Osiloskop</span>
-            <span style="background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.18);color:var(--accent);padding:.3rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600">CAN Bus</span>
-            <span style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);color:var(--gold);padding:.3rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600">Akü Sistemleri</span>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Endüstriyel Elektronik • Otomotiv ECU • Kart Tamiri</div>
+          <h1>Endüstriyel elektronik kart, otomotiv beyin ve komponent seviyesi tamir çözümleri.</h1>
+          <p>
+            YILDIRIM ELEKTRONİK olarak; endüstriyel makine kontrol kartları, otomotiv ECU/beyin ve araç elektronik modülleri,
+            elektronik kartlar, beyaz eşya ve kombi kartları, akü-batarya sistemleri ve haberleşme kabloları için
+            ölçüm odaklı arıza analizi, komponent seviyesi onarım ve teknik servis desteği sunuyoruz.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#hizmetler">Hizmet Ara</a>
+            <a class="btn" href="#iletisim">Arıza Talebi Oluştur</a>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <strong>Endüstriyel</strong>
+              <span>Makine kartları</span>
+            </div>
+            <div class="stat">
+              <strong>Elektronik Kart</strong>
+              <span>Komponent tamiri</span>
+            </div>
+            <div class="stat">
+              <strong>Otomotiv</strong>
+              <span>ECU & modül</span>
+            </div>
+            <div class="stat">
+              <strong>Servis</strong>
+              <span>Beyaz eşya & kombi</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="device-card" aria-label="Elektronik devre görsel alanı">
+          <div class="circuit"></div>
+          <div class="chip"><span>ECU</span></div>
+          <div class="floating-card">
+            <strong>Mühendislik odaklı arıza analizi ve onarım</strong>
+            <p>Endüstriyel kartlar, otomotiv ECU/modüller ve elektronik kontrol kartlarında arıza belirtisi alınır, ölçüm yapılır ve çözüm planı oluşturulur.</p>
           </div>
         </div>
       </div>
-      <div class="fade-in">
-        <div class="section-label"><i class="fas fa-user"></i> Hakkımda</div>
-        <h2 class="section-title">Mühendislik Altyapısıyla<br>Kalıcı Teknik Çözümler</h2>
-        <p style="color:var(--muted);margin-bottom:1rem;font-size:.92rem">Elektrik Elektronik Mühendisi olarak otomotiv elektroniğinden endüstriyel kart onarımına, akü sistemlerinden gömülü sistem geliştirmeye kadar geniş bir yelpazede aktif olarak çalışıyorum.</p>
-        <p style="color:var(--muted);margin-bottom:1rem;font-size:.92rem">Her arıza sürecinde yalnızca parça değiştirmek yerine; osiloskop, multimetre ve protokol analizörleri ile kök neden tespiti yaparak kalıcı ve güvenilir çözümler üretiyorum.</p>
-        <p style="color:var(--muted);margin-bottom:1.75rem;font-size:.92rem">Müşterilerimi süreç boyunca açık ve anlaşılır bir dille bilgilendiriyor, maliyet etkin çözümler sunmayı öncelik olarak benimsiyorum.</p>
-        <div style="display:flex;flex-direction:column;gap:.6rem">
-          <div style="display:flex;align-items:center;gap:.65rem;font-size:.88rem;color:var(--text)"><i class="fas fa-check-circle" style="color:var(--accent)"></i> Komponent düzeyinde inceleme ve hassas lehimleme</div>
-          <div style="display:flex;align-items:center;gap:.65rem;font-size:.88rem;color:var(--text)"><i class="fas fa-check-circle" style="color:var(--accent)"></i> CAN / LIN / RS485 protokol analizi</div>
-          <div style="display:flex;align-items:center;gap:.65rem;font-size:.88rem;color:var(--text)"><i class="fas fa-check-circle" style="color:var(--accent)"></i> STM32 &amp; ESP32 ile gömülü sistem geliştirme</div>
-          <div style="display:flex;align-items:center;gap:.65rem;font-size:.88rem;color:var(--text)"><i class="fas fa-check-circle" style="color:var(--accent)"></i> Akü paketi tasarımı ve BMS entegrasyonu</div>
-          <div style="display:flex;align-items:center;gap:.65rem;font-size:.88mm;color:var(--text)"><i class="fas fa-check-circle" style="color:var(--accent)"></i> Kargo ile yurt içi ürün kabulü</div>
+    </section>
+
+    <section id="hizmetler">
+      <div class="container">
+        <div class="section-head center">
+          <h2>Hizmetler ve çözüm yaklaşımı</h2>
+          <p>Endüstriyel kart, elektronik kart, otomotiv ECU/beyin, beyaz eşya, kombi, akü-batarya ve haberleşme kablosu ihtiyaçların için arama yapabilir; ilgili hizmet üzerinden destek talebi oluşturabilirsin.</p>
+        </div>
+
+        <div class="search-panel">
+          <div class="search-row">
+            <input id="serviceSearch" class="search-input" type="search" placeholder="Örn: beyaz eşya, kombi, ECU, akü, BMS, RS485, sigorta attırıyor, hata kodu..." aria-label="Hizmet ara" />
+            <a class="btn btn-primary" href="#iletisim">Destek Talep Et</a>
+          </div>
+          <div class="filter-buttons" aria-label="Hizmet kategorileri">
+            <button class="filter-btn active" data-filter="all" type="button">Tümü</button>
+            <button class="filter-btn" data-filter="beyazesya" type="button">Beyaz Eşya & Kombi</button>
+            <button class="filter-btn" data-filter="kart" type="button">Kart Tamiri</button>
+            <button class="filter-btn" data-filter="oto" type="button">Oto Elektronik</button>
+            <button class="filter-btn" data-filter="aku" type="button">Akü & Batarya</button>
+            <button class="filter-btn" data-filter="kablo" type="button">Kablo & Haberleşme</button>
+            <button class="filter-btn" data-filter="endustri" type="button">Endüstriyel</button>
+            <button class="filter-btn" data-filter="iot" type="button">Gömülü Sistem</button>
+          </div>
+          <div id="resultCount" class="result-count">Tüm hizmetler listeleniyor.</div>
+        </div>
+
+        <div id="serviceGrid" class="cards">
+          <article class="card service-card" data-category="beyazesya" data-service="Beyaz Eşya Teknik Servis ve Kart Tamiri" data-text="beyaz eşya teknik servis çamaşır bulaşık buzdolabı fırın kurutma ankastre kart hata kodu röle triyak motor sürücü pompa rezistans ekran kartı">
+            <div class="icon">🧺</div>
+            <h3>Beyaz Eşya Teknik Servis ve Kart Tamiri</h3>
+            <p>Çamaşır makinesi, bulaşık makinesi, buzdolabı, fırın, kurutma ve ankastre cihazlarda çalışmama, hata kodu, program başlatmama, sigorta attırma ve elektronik kart arızaları değerlendirilir.</p>
+            <p>Çözümde önce cihaz modeli, hata kodu ve kart fotoğrafları alınır. Ardından besleme devresi, röle/triyak çıkışları, motor sürücü, pompa/rezistans kontrolü ve ekran kartı bağlantıları incelenir.</p>
+            <div class="tag-list"><span class="tag">Çamaşır</span><span class="tag">Bulaşık</span><span class="tag">Buzdolabı</span><span class="tag">Fırın</span></div>
+            <div class="card-actions"><button class="btn btn-small request-btn" type="button">Bu hizmet için destek al</button></div>
+          </article>
+
+          <article class="card service-card" data-category="beyazesya" data-service="Kombi Teknik Servis ve Kart Tamiri" data-text="kombi teknik servis kombi kartı ateşleme iyonizasyon gaz valfi fan pompa ntc basınç akış röle triyak besleme hata kodu">
+            <div class="icon">🔥</div>
+            <h3>Kombi Teknik Servis ve Kart Tamiri</h3>
+            <p>Kombi çalışmıyor, ateşleme yapmıyor, hata kodu veriyor, fan/pompa devreye girmiyor veya kart üzerinde yanık/oksitlenme varsa elektronik kart ve kontrol devresi incelenir.</p>
+            <p>Besleme hattı, ateşleme-iyonizasyon devresi, gaz valfi sürme, röle/triyak çıkışları, NTC, basınç ve akış sensörü hatları kontrol edilir. Gaz hattı ve yanma ayarı gibi güvenlik işlemlerinde yetkili servis yönlendirmesi yapılır.</p>
+            <div class="tag-list"><span class="tag">Ateşleme</span><span class="tag">İyonizasyon</span><span class="tag">Fan/Pompa</span><span class="tag">NTC</span></div>
+            <div class="card-actions"><button class="btn btn-small request-btn" type="button">Bu hizmet için destek al</button></div>
+          </article>
+
+          <article class="card service-card" data-category="kart" data-service="Elektronik Kart Tamiri" data-text="elektronik kart pcb tamiri smd lehim rework kısa devre yanık oksit besleme mosfet diyot regülatör röle kondansatör">
+            <div class="icon">🔧</div>
+            <h3>Elektronik Kart Tamiri</h3>
+            <p>Yanmış, su almış, oksitlenmiş, kısa devre yapan, sigorta attıran veya hiç çalışmayan elektronik kartlarda komponent seviyesinde arıza tespiti yapılır.</p>
+            <p>Çözüm sürecinde kartın görsel kontrolü, besleme hattı ölçümü, kısa devre analizi, SMD komponent kontrolü, röle/MOSFET/diyot/regülatör testleri ve gerektiğinde yol-komponent onarımı uygulanır.</p>
+            <div class="tag-list"><span class="tag">PCB</span><span class="tag">SMD</span><span class="tag">Kısa devre</span><span class="tag">Rework</span></div>
+            <div class="card-actions"><button class="btn btn-small request-btn" type="button">Bu hizmet için destek al</button></div>
+          </article>
+
+          <article class="card service-card" data-category="oto" data-service="ECU / Beyin Tamiri" data-text="ecu beyin motor beyni şanzıman abs bcm airbag kontrol modülü araç elektronik can lin k-line obd sensör aktüatör">
+            <div class="icon">🚗</div>
+            <h3>ECU / Beyin Tamiri</h3>
+            <p>Araç çalışmama, arıza lambası, haberleşme problemi, su alma, oksitlenme, soket-pin hasarı veya ECU üzerinde besleme/sürücü devresi arızaları değerlendirilir.</p>
+            <p>Kontrol aşamasında ECU besleme hatları, şase bağlantısı, CAN/LIN/K-Line haberleşme, sensör girişleri, çıkış sürücüleri, soket-pin yapısı ve kart üzerindeki hasarlı komponentler incelenir.</p>
+            <div class="tag-list"><span class="tag">Motor beyni</span><span class="tag">CAN</span><span class="tag">OBD</span><span class="tag">Soket-pin</span></div>
+            <div class="card-actions"><button class="btn btn-small request-btn" type="button">Bu hizmet için destek al</button></div>
+          </article>
+
+          <article class="card service-card" data-category="beyazesya" data-service="Klima ve İnverter Kart Tamiri" data-text="klima inverter kart dış ünite iç ünite kompresör sürücü ipm igbt mosfet fan motor sensör haberleşme">
+            <div class="icon">❄️</div>
+            <h3>Klima ve İnverter Kart Tamiri</h3>
+            <p>Klima çalışmıyor, dış ünite devreye girmiyor, fan dönmüyor, haberleşme hatası veriyor veya inverter kartta güç katı arızası şüphesi varsa ön değerlendirme yapılır.</p>
+            <p>İç/dış ünite kartları, IPM/IGBT/MOSFET güç katı, kompresör sürücü hattı, fan motoru çıkışı, sensör girişleri ve haberleşme bağlantıları kontrol edilir.</p>
+            <div class="tag-list"><span class="tag">İnverter</span><span class="tag">IPM</span><span class="tag">Fan</span><span class="tag">Haberleşme</span></div>
+            <div class="card-actions"><button class="btn btn-small request-btn" type="button">Bu hizmet için destek al</button></div>
+          </article>
+
+          <article class="card service-card" data-category="kablo" data-service="Kablo ve Haberleşme Çözümleri" data-text="haberleşme kablosu rs232 rs485 can bus uart obd sensör konnektör pinout test kablosu bench kablo özel kablo">
+            <div class="icon">🔌</div>
+            <h3>Kablo ve Haberleşme Çözümleri</h3>
+            <p>Cihazlar arasında bağlantı kurulamaması, özel soket/pinout ihtiyacı, test kablosu gereksinimi veya haberleşme hatası durumlarında kablo ve bağlantı çözümü hazırlanır.</p>
+            <p>RS232, RS485, CAN bus, UART, OBD, sensör kablosu, ECU bench kablosu, kombi kartı test kablosu ve özel konnektörlü bağlantılar cihaz ihtiyacına göre üretilir.</p>
+            <div class="tag-list"><span class="tag">RS485</span><span class="tag">CAN</span><span class="tag">UART</span><span class="tag">Bench</span></div>
+            <div class="card-actions"><button class="btn btn-small request-btn" type="button">Bu hizmet için destek al</button></div>
+          </article>
+
+          <article class="card service-card" data-category="aku" data-service="Akü, Pil ve Batarya Sistemleri" data-text="akü pil batarya bms lityum ups scooter robotik sistem kapasite iç direnç şarj hattı sigorta hücre balans">
+            <div class="icon">🔋</div>
+            <h3>Akü, Pil ve Batarya Sistemleri</h3>
+            <p>Akü hızlı bitiyor, batarya şarj olmuyor, BMS korumaya geçiyor, pil paketi kapasitesi düşüyor veya bağlantı/kablolama sorunu yaşanıyorsa teknik değerlendirme yapılır.</p>
+            <p>Voltaj, kapasite, iç direnç, BMS bağlantısı, hücre dengesi, sigorta, kablo kesiti ve şarj hattı kontrol edilir. Fiziksel hasarlı lityum bataryalarda onarım yerine güvenli değişim önerilir.</p>
+            <div class="tag-list"><span class="tag">BMS</span><span class="tag">UPS</span><span class="tag">Scooter</span><span class="tag">Pil paketi</span></div>
+            <div class="card-actions"><button class="btn btn-small request-btn" type="button">Bu hizmet için destek al</button></div>
+          </article>
+
+          <article class="card service-card" data-category="endustri" data-service="Endüstriyel Elektronik Tamiri" data-text="endüstriyel elektronik cnc plc hmi pano makine kontrol kartı röle kartı sensör kartı motor sürücü güç kaynağı">
+            <div class="icon">🏭</div>
+            <h3>Endüstriyel Elektronik Tamiri</h3>
+            <p>Makine çalışmaması, pano içi modül arızası, röle kartı problemi, sensör kartı, motor sürücü, güç kaynağı veya haberleşme sorunları için ön inceleme yapılır.</p>
+            <p>Besleme devresi, çıkış sürücüleri, röle ve koruma elemanları, konnektörler, kısa devre ihtimalleri ve cihaz bağlantıları değerlendirilir. Gerekirse özel test kablosu veya aparat hazırlanır.</p>
+            <div class="tag-list"><span class="tag">Pano</span><span class="tag">CNC</span><span class="tag">PLC I/O</span><span class="tag">Güç modülü</span></div>
+            <div class="card-actions"><button class="btn btn-small request-btn" type="button">Bu hizmet için destek al</button></div>
+          </article>
+
+          <article class="card service-card" data-category="iot" data-service="Gömülü Sistem ve IoT Çözümleri" data-text="gömülü sistem iot stm32 esp32 arduino raspberry pi sensör veri okuma dashboard uzaktan izleme röle kontrol alarm takip">
+            <div class="icon">📡</div>
+            <h3>Gömülü Sistem ve IoT Çözümleri</h3>
+            <p>Sensör verisi okuma, uzaktan izleme, röle kontrol, alarm sistemi, dashboard veya özel cihaz prototipi gerektiğinde gömülü sistem çözümü geliştirilebilir.</p>
+            <p>STM32, ESP32, Arduino ve Raspberry Pi tabanlı prototipler; sensör, haberleşme, veri toplama, kontrol ve web arayüz ihtiyaçlarına göre planlanır.</p>
+            <div class="tag-list"><span class="tag">STM32</span><span class="tag">ESP32</span><span class="tag">Raspberry Pi</span><span class="tag">Dashboard</span></div>
+            <div class="card-actions"><button class="btn btn-small request-btn" type="button">Bu hizmet için destek al</button></div>
+          </article>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<style>@media(max-width:768px){.about-grid-r{grid-template-columns:1fr !important}}</style>
-<section class="services" id="services">
-  <div class="container">
-    <div class="section-label"><i class="fas fa-layer-group"></i> Hizmetler</div>
-    <h2 class="section-title">Uzmanlık Kategorileri</h2>
-    <p class="section-desc">Beş ana kategoride sunulan profesyonel teknik servis hizmetleri.</p>
-    <div class="srv-tabs">
-      <div class="srv-tab active" onclick="switchTab(0)"><i class="fas fa-car"></i> Otomotiv Elektroniği</div>
-      <div class="srv-tab" onclick="switchTab(1)"><i class="fas fa-microchip"></i> Elektronik Kart Tamiri</div>
-      <div class="srv-tab" onclick="switchTab(2)"><i class="fas fa-battery-full"></i> Akü &amp; Batarya</div>
-      <div class="srv-tab" onclick="switchTab(3)"><i class="fas fa-plug"></i> Kablo &amp; Test Aparatı</div>
-      <div class="srv-tab" onclick="switchTab(4)"><i class="fas fa-code"></i> Gömülü Sistem &amp; IoT</div>
-    </div>
-    <div class="srv-panel active" id="panel0">
-      <div class="srv-header"><h3><i class="fas fa-car" style="color:var(--accent);margin-right:.5rem"></i>Otomotiv Elektroniği</h3><p>Araç elektronik sistemleri üzerinde mühendislik analizi ve onarım hizmetleri.</p></div>
-      <div class="srv-grid">
-        <div class="srv-card fade-in" onclick="openModal('m1')"><div class="srv-icon"><i class="fas fa-brain"></i></div><h4>ECU / Beyin Tamiri</h4><p>Araç motor kontrol ünitesi arıza tespiti, komponent onarımı ve test.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m2')"><div class="srv-icon"><i class="fas fa-shield-alt"></i></div><h4>ABS / BCM / Gösterge Paneli</h4><p>Fren sistemi, karoser kontrol modülü ve gösterge paneli onarımı.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m3')"><div class="srv-icon"><i class="fas fa-search"></i></div><h4>Araç Elektrik Arıza Tespiti</h4><p>Elektrik sistemi taraması, kısa devre, açık devre ve sensör arızası tespiti.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m4')"><div class="srv-icon"><i class="fas fa-network-wired"></i></div><h4>CAN / LIN Haberleşme Kontrolü</h4><p>Araç ağ haberleşme protokolleri analizi ve iletişim arızası tespiti.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-      </div>
-    </div>
-    <div class="srv-panel" id="panel1">
-      <div class="srv-header"><h3><i class="fas fa-microchip" style="color:var(--accent);margin-right:.5rem"></i>Elektronik Kart Tamiri</h3><p>Endüstriyel ve tüketici elektroniği kart onarımı.</p></div>
-      <div class="srv-grid">
-        <div class="srv-card fade-in" onclick="openModal('m5')"><div class="srv-icon"><i class="fas fa-fire"></i></div><h4>Kombi Kartı</h4><p>Kazan / kombi elektronik kartlarında yanmış komponent ve kontrol devresi onarımı.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m6')"><div class="srv-icon"><i class="fas fa-bolt"></i></div><h4>Güç Kaynağı</h4><p>SMPS, doğrultucu, regülatör ve güç dönüştürücü devrelerinin onarımı.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m7')"><div class="srv-icon"><i class="fas fa-industry"></i></div><h4>Endüstriyel Kart</h4><p>PLC, sürücü ve frekans inverter kart onarımı.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m8')"><div class="srv-icon"><i class="fas fa-toggle-on"></i></div><h4>Röle / Sürücü / Sensör Kartları</h4><p>Röle, motor sürücü ve sensör işleme kartlarının komponent düzeyinde onarımı.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-      </div>
-    </div>
-    <div class="srv-panel" id="panel2">
-      <div class="srv-header"><h3><i class="fas fa-battery-full" style="color:var(--accent);margin-right:.5rem"></i>Akü &amp; Batarya Sistemleri</h3><p>Akü testi, BMS ve batarya paketi çözümleri.</p></div>
-      <div class="srv-grid">
-        <div class="srv-card fade-in" onclick="openModal('m9')"><div class="srv-icon"><i class="fas fa-battery-three-quarters"></i></div><h4>Akü Testi</h4><p>Kapasite, iç direnç ve yük testi ile akü sağlık durumu analizi.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m10')"><div class="srv-icon"><i class="fas fa-sliders-h"></i></div><h4>BMS Kontrolü</h4><p>Batarya yönetim sistemi arıza tespiti, konfigürasyon ve onarım.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m11')"><div class="srv-icon"><i class="fas fa-cubes"></i></div><h4>Batarya Paketi Üretimi</h4><p>Özel boyut ve kapasite Li-ion / LiFePO4 batarya paketi tasarım ve üretimi.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m12')"><div class="srv-icon"><i class="fas fa-charging-station"></i></div><h4>UPS / Scooter / Robotik Batarya</h4><p>UPS, elektrikli scooter ve robotik sistemler için özel batarya çözümleri.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-      </div>
-    </div>
-    <div class="srv-panel" id="panel3">
-      <div class="srv-header"><h3><i class="fas fa-plug" style="color:var(--accent);margin-right:.5rem"></i>Kablo &amp; Test Aparatı</h3><p>Cihaza özel kablo ve test aparatı üretimi.</p></div>
-      <div class="srv-grid">
-        <div class="srv-card fade-in" onclick="openModal('m13')"><div class="srv-icon"><i class="fas fa-ethernet"></i></div><h4>RS232 / RS485 / CAN / UART</h4><p>Endüstriyel haberleşme protokollerine uygun özel kablo üretimi.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m14')"><div class="srv-icon"><i class="fas fa-car-battery"></i></div><h4>ECU Bench Kablosu</h4><p>ECU bench testi için araç dışı çalıştırma kablo demeti üretimi.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m15')"><div class="srv-icon"><i class="fas fa-exchange-alt"></i></div><h4>Pinout Dönüştürücü</h4><p>Farklı konnektörler arası özel adaptör ve dönüştürücü kablo üretimi.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m16')"><div class="srv-icon"><i class="fas fa-wave-square"></i></div><h4>Sensör Test Kablosu</h4><p>Sensör sinyal ölçümü ve simülasyonu için özel test kabloları.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-      </div>
-    </div>
-    <div class="srv-panel" id="panel4">
-      <div class="srv-header"><h3><i class="fas fa-code" style="color:var(--accent);margin-right:.5rem"></i>Gömülü Sistem &amp; IoT</h3><p>Mikrodenetleyici tabanlı proje geliştirme ve danışmanlık.</p></div>
-      <div class="srv-grid">
-        <div class="srv-card fade-in" onclick="openModal('m17')"><div class="srv-icon"><i class="fas fa-microchip"></i></div><h4>STM32 Geliştirme</h4><p>STM32 tabanlı gömülü sistem tasarımı, firmware yazımı ve debug.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m18')"><div class="srv-icon"><i class="fas fa-wifi"></i></div><h4>ESP32 / IoT</h4><p>ESP32 ile WiFi/BLE bağlantılı IoT cihaz geliştirme ve prototipleme.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m19')"><div class="srv-icon"><i class="fas fa-raspberry-pi"></i></div><h4>Raspberry Pi</h4><p>Raspberry Pi tabanlı kontrol sistemi, veri toplama ve görüntü işleme.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-        <div class="srv-card fade-in" onclick="openModal('m20')"><div class="srv-icon"><i class="fas fa-chart-line"></i></div><h4>Sensör Veri Toplama &amp; Dashboard</h4><p>Uzaktan izleme, sensör veri loglama ve web/mobil dashboard çözümleri.</p><span class="srv-more">Detayları Gör <i class="fas fa-arrow-right"></i></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="fault" id="fault">
-  <div class="container">
-    <div class="section-label"><i class="fas fa-stethoscope"></i> Arıza Seçici</div>
-    <h2 class="section-title">Probleminizi Tanımlayın</h2>
-    <p class="section-desc">Teknik terim bilmenize gerek yok. Yaşadığınız sorunu seçin, size uygun hizmeti belirleyelim.</p>
-    <div class="fault-grid">
-      <div class="fault-options">
-        <div class="fault-opt" onclick="showFault('f1',this)"><i class="fas fa-car-crash"></i> Araç çalışmıyor / start almıyor</div>
-        <div class="fault-opt" onclick="showFault('f2',this)"><i class="fas fa-fire"></i> Kombi hata veriyor / yanmıyor</div>
-        <div class="fault-opt" onclick="showFault('f3',this)"><i class="fas fa-battery-empty"></i> Akü hızlı bitiyor</div>
-        <div class="fault-opt" onclick="showFault('f4',this)"><i class="fas fa-exclamation-triangle"></i> Gösterge uyarı lambası yanıyor</div>
-        <div class="fault-opt" onclick="showFault('f5',this)"><i class="fas fa-plug"></i> Cihaza özel kablo lazım</div>
-        <div class="fault-opt" onclick="showFault('f6',this)"><i class="fas fa-industry"></i> Endüstriyel ekipman arızası</div>
-        <div class="fault-opt" onclick="showFault('f7',this)"><i class="fas fa-robot"></i> IoT / gömülü sistem projesi</div>
-        <div class="fault-opt" onclick="showFault('f8',this)"><i class="fas fa-question-circle"></i> Ne olduğunu bilmiyorum</div>
-      </div>
-      <div class="fault-result">
-        <div class="fault-result-empty" id="fault-empty"><i class="fas fa-hand-pointer"></i>Sol taraftan bir seçim yapın</div>
-        <div class="fault-answer" id="f1"><h4><i class="fas fa-car-crash" style="color:var(--accent);margin-right:.5rem"></i>Araç Çalışmıyor / Start Almıyor</h4><ul><li>ECU / motor beyin arızası analizi yapılır</li><li>CAN/LIN haberleşme hattı kontrol edilir</li><li>Yakıt, ateşleme ve sensör sinyalleri ölçülür</li><li>Arızalı komponentler tespit edilip onarılır</li><li>Onarım sonrası bench testi yapılır</li></ul><a href="#contact" class="btn btn-ghost" style="margin-top:1.25rem;display:inline-flex">Destek Al <i class="fas fa-arrow-right"></i></a></div>
-        <div class="fault-answer" id="f2"><h4><i class="fas fa-fire" style="color:var(--accent);margin-right:.5rem"></i>Kombi Hata Veriyor</h4><ul><li>Kombi elektronik kartı görsel ve ölçüm ile incelenir</li><li>Yanmış röle, triyak ve kondansatörler tespit edilir</li><li>Güç kaynağı ve sensör giriş devreleri kontrol edilir</li><li>Komponent değişimi ve işlevsellik testi yapılır</li></ul><a href="#contact" class="btn btn-ghost" style="margin-top:1.25rem;display:inline-flex">Destek Al <i class="fas fa-arrow-right"></i></a></div>
-        <div class="fault-answer" id="f3"><h4><i class="fas fa-battery-empty" style="color:var(--accent);margin-right:.5rem"></i>Akü Hızlı Bitiyor</h4><ul><li>Akü kapasitesi ve iç direnç testi yapılır</li><li>BMS devre kontrolü ve hücre dengeleme incelenir</li><li>Şarj/deşarj karakteristiği analiz edilir</li><li>Hatalı hücre veya BMS arızası tespit edilir</li></ul><a href="#contact" class="btn btn-ghost" style="margin-top:1.25rem;display:inline-flex">Destek Al <i class="fas fa-arrow-right"></i></a></div>
-        <div class="fault-answer" id="f4"><h4><i class="fas fa-exclamation-triangle" style="color:var(--accent);margin-right:.5rem"></i>Gösterge Uyarı Lambası</h4><ul><li>ABS, SRS, motor vb. modüller osiloskopla incelenir</li><li>CAN/LIN haberleşme mesajları analiz edilir</li><li>Arızalı sensör veya modül tespit edilir</li><li>BCM / gösterge paneli onarımı yapılır</li></ul><a href="#contact" class="btn btn-ghost" style="margin-top:1.25rem;display:inline-flex">Destek Al <i class="fas fa-arrow-right"></i></a></div>
-        <div class="fault-answer" id="f5"><h4><i class="fas fa-plug" style="color:var(--accent);margin-right:.5rem"></i>Cihaza Özel Kablo</h4><ul><li>RS232 / RS485 / CAN / UART kablo üretimi</li><li>ECU bench kablosu ve pinout dönüştürücü</li><li>Konnektör tipi ve pin dizilimi paylaşılarak sipariş verilebilir</li><li>Endüstriyel standartlara uygun üretim</li></ul><a href="#contact" class="btn btn-ghost" style="margin-top:1.25rem;display:inline-flex">Destek Al <i class="fas fa-arrow-right"></i></a></div>
-        <div class="fault-answer" id="f6"><h4><i class="fas fa-industry" style="color:var(--accent);margin-right:.5rem"></i>Endüstriyel Ekipman Arızası</h4><ul><li>PLC, inverter, sürücü kart görsel incelemesi yapılır</li><li>Güç kaynağı ve çıkış devreleri ölçülür</li><li>Arızalı komponentler komponent düzeyinde değiştirilir</li><li>İşlevsellik testi ve teslim sağlanır</li></ul><a href="#contact" class="btn btn-ghost" style="margin-top:1.25rem;display:inline-flex">Destek Al <i class="fas fa-arrow-right"></i></a></div>
-        <div class="fault-answer" id="f7"><h4><i class="fas fa-robot" style="color:var(--accent);margin-right:.5rem"></i>IoT / Gömülü Sistem Projesi</h4><ul><li>STM32 / ESP32 / Raspberry Pi proje danışmanlığı</li><li>Sensör entegrasyonu ve veri toplama sistemleri</li><li>Uzaktan izleme ve dashboard geliştirme</li><li>Prototip üretim ve test desteği</li></ul><a href="#contact" class="btn btn-ghost" style="margin-top:1.25rem;display:inline-flex">Destek Al <i class="fas fa-arrow-right"></i></a></div>
-        <div class="fault-answer" id="f8"><h4><i class="fas fa-question-circle" style="color:var(--accent);margin-right:.5rem"></i>Emin Değilim</h4><ul><li>Cihazı veya kartı kargo ile gönderebilirsiniz</li><li>Ücretsiz ön değerlendirme ve teşhis yapılır</li><li>Arıza hakkında detaylı bilgilendirme sağlanır</li><li>Onarım onayı sizden alındıktan sonra başlanır</li></ul><a href="#contact" class="btn btn-ghost" style="margin-top:1.25rem;display:inline-flex">İletişime Geç <i class="fas fa-arrow-right"></i></a></div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="equip" id="equip">
-  <div class="container">
-    <div class="section-label"><i class="fas fa-tools"></i> Teknik Ekipman</div>
-    <h2 class="section-title">Kullandığım Test Altyapısı</h2>
-    <p class="section-desc">Her onarım, profesyonel test ekipmanları ile desteklenmektedir.</p>
-    <div class="equip-grid">
-      <div class="equip-card fade-in"><span class="equip-icon">📡</span><h4>Dijital Osiloskop</h4><p>4 kanallı, protokol decode desteği</p></div>
-      <div class="equip-card fade-in"><span class="equip-icon">⚡</span><h4>Programlanabilir Güç Kaynağı</h4><p>0–30V / 0–10A ayarlanabilir</p></div>
-      <div class="equip-card fade-in"><span class="equip-icon">🔬</span><h4>Stereo Mikroskop</h4><p>SMD ve BGA lehimleme için</p></div>
-      <div class="equip-card fade-in"><span class="equip-icon">🌡️</span><h4>Sıcak Hava İstasyonu</h4><p>SMD komponent sökme / takma</p></div>
-      <div class="equip-card fade-in"><span class="equip-icon">📶</span><h4>CAN / RS485 Analizörü</h4><p>Haberleşme protokol analizi</p></div>
-      <div class="equip-card fade-in"><span class="equip-icon">🔋</span><h4>Akü Test Cihazı</h4><p>Kapasite, iç direnç, yük testi</p></div>
-      <div class="equip-card fade-in"><span class="equip-icon">🛠️</span><h4>Multimetre (True-RMS)</h4><p>Hassas voltaj / akım / direnç</p></div>
-      <div class="equip-card fade-in"><span class="equip-icon">🔌</span><h4>LCR Metre</h4><p>Kondansatör / endüktans ölçümü</p></div>
-    </div>
-  </div>
-</section>
+    <section id="teknik-servis" class="guide">
+      <div class="container">
+        <div class="section-head center">
+          <h2>Beyaz eşya ve kombi teknik servis desteği</h2>
+          <p>Sadece kart tamiri değil; arıza belirtisinin alınması, kart/cihaz ön değerlendirmesi, servis yönlendirmesi ve ulaşılabilir teknik destek süreci sunulur.</p>
+        </div>
 
-<section class="why" id="why">
-  <div class="container">
-    <div class="section-label"><i class="fas fa-star"></i> Neden Ben?</div>
-    <h2 class="section-title">Mühendislik Farkı</h2>
-    <p class="section-desc">Sıradan tamir dükkanı değil; analiz, ölçüm ve mühendislik temelli çözüm.</p>
-    <div class="why-grid">
-      <div class="why-card fade-in"><div class="why-icon"><i class="fas fa-graduation-cap"></i></div><div><div class="why-num">01</div><h4>Mühendislik Altyapısı</h4><p>Elektrik Elektronik Mühendisliği eğitimi ile teorik ve pratik bilgi birikimi.</p></div></div>
-      <div class="why-card fade-in"><div class="why-icon"><i class="fas fa-crosshairs"></i></div><div><div class="why-num">02</div><h4>Kök Neden Analizi</h4><p>Belirtiyi değil, arızanın gerçek kaynağını tespit ederek kalıcı çözüm.</p></div></div>
-      <div class="why-card fade-in"><div class="why-icon"><i class="fas fa-wave-square"></i></div><div><div class="why-num">03</div><h4>Ölçüm Temelli Teşhis</h4><p>Osiloskop ve protokol analizörü ile veriye dayalı, tahmine değil.</p></div></div>
-      <div class="why-card fade-in"><div class="why-icon"><i class="fas fa-eye"></i></div><div><div class="why-num">04</div><h4>Komponent Düzeyinde Onarım</h4><p>BGA, SMD dahil hassas lehimleme. Kart değil, sorunlu komponent değişir.</p></div></div>
-      <div class="why-card fade-in"><div class="why-icon"><i class="fas fa-comments"></i></div><div><div class="why-num">05</div><h4>Şeffaf İletişim</h4><p>Süreç boyunca anlaşılır bilgilendirme. Sürpriz fiyat yok.</p></div></div>
-      <div class="why-card fade-in"><div class="why-icon"><i class="fas fa-tags"></i></div><div><div class="why-num">06</div><h4>Maliyet Etkin</h4><p>Gereksiz parça değişimi yok. Çözüm odaklı ve bütçe dostu yaklaşım.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="process" style="padding:100px 0" id="process">
-  <div class="container">
-    <div class="section-label"><i class="fas fa-list-ol"></i> Süreç</div>
-    <h2 class="section-title">Nasıl Çalışıyorum?</h2>
-    <p class="section-desc">5 adımda şeffaf ve sistematik onarım süreci.</p>
-    <div class="steps">
-      <div class="step fade-in"><div class="step-num">1</div><h4>Arıza Görüşmesi</h4><p>Cihaz ve arıza hakkında bilgi alınır, ön değerlendirme yapılır.</p></div>
-      <div class="step fade-in"><div class="step-num">2</div><h4>Kart İnceleme</h4><p>Görsel inceleme; yanma, sızıntı ve fiziksel hasar tespiti.</p></div>
-      <div class="step fade-in"><div class="step-num">3</div><h4>Arıza Teşhisi</h4><p>Osiloskop ve test ekipmanlarıyla detaylı ölçüm ve analiz.</p></div>
-      <div class="step fade-in"><div class="step-num">4</div><h4>Onarım</h4><p>Arızalı komponentler değiştirilir, lehimleme yenilenir.</p></div>
-      <div class="step fade-in"><div class="step-num">5</div><h4>Test &amp; Teslim</h4><p>Fonksiyonel testler sonrası sorunsuz teslim edilir.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="gallery" id="gallery">
-  <div class="container">
-    <div class="section-label"><i class="fas fa-images"></i> Galeri</div>
-    <h2 class="section-title">Çalışma Örnekleri</h2>
-    <p class="section-desc">Gerçek görseller yakında eklenecektir.</p>
-    <div class="gallery-grid">
-      <div class="gallery-item fade-in"><span class="gallery-badge">ECU</span><i class="fas fa-brain"></i><span>Araç ECU Tamiri</span></div>
-      <div class="gallery-item fade-in"><span class="gallery-badge">Kombi</span><i class="fas fa-fire"></i><span>Kombi Kart Onarımı</span></div>
-      <div class="gallery-item fade-in"><span class="gallery-badge">BMS</span><i class="fas fa-battery-full"></i><span>Akü / BMS Sistemi</span></div>
-      <div class="gallery-item fade-in"><span class="gallery-badge">Lehimleme</span><i class="fas fa-burn"></i><span>Hassas SMD Lehimleme</span></div>
-      <div class="gallery-item fade-in"><span class="gallery-badge">Kablo</span><i class="fas fa-ethernet"></i><span>Özel Kablo Üretimi</span></div>
-      <div class="gallery-item fade-in"><span class="gallery-badge">IoT</span><i class="fas fa-wifi"></i><span>Gömülü Sistem Projesi</span></div>
-    </div>
-  </div>
-</section>
-<section class="faq" id="faq">
-  <div class="container">
-    <div class="section-label"><i class="fas fa-question-circle"></i> SSS</div>
-    <h2 class="section-title">Sık Sorulan Sorular</h2>
-    <p class="section-desc">En çok merak edilen soruların profesyonel yanıtları.</p>
-    <div class="faq-list">
-      <div class="faq-item"><div class="faq-q">ECU tamiri ne kadar sürer? <i class="fas fa-plus"></i></div><div class="faq-a"><div class="faq-a-inner">Arızanın türüne bağlı olarak 1–5 iş günü arasında değişir. Basit komponent arızaları genellikle 1–2 gün içinde tamamlanır. Karmaşık durumlarda süre uzayabilir; tahmini süre işlem başlamadan önce bildirilir.</div></div></div>
-      <div class="faq-item"><div class="faq-q">Her elektronik kart tamir edilebilir mi? <i class="fas fa-plus"></i></div><div class="faq-a"><div class="faq-a-inner">Büyük çoğunluğu teknik analiz ile onarılabilir. Tamirin fiziksel olarak mümkün olmadığı nadir durumlarda dürüst bilgilendirme yapılır ve alternatif çözümler sunulur. Onarılamaz durumda ücret alınmaz.</div></div></div>
-      <div class="faq-item"><div class="faq-q">Kombi kontrol kartı tamiri mümkün mü? <i class="fas fa-plus"></i></div><div class="faq-a"><div class="faq-a-inner">Evet, en sık onarım yapılan ürünler arasındadır. Yanmış röle, kondansatör, triyak ve güç kaynağı devreleri komponent düzeyinde değiştirilerek kart büyük oranda geri kazanılabilir.</div></div></div>
-      <div class="faq-item"><div class="faq-q">Akü / BMS tamiri yapıyor musunuz? <i class="fas fa-plus"></i></div><div class="faq-a"><div class="faq-a-inner">Evet. Akü kapasite ve iç direnç testi, BMS konfigürasyon kontrolü, hücre dengeleme ve hatalı hücre değişimi hizmetleri sunulmaktadır. Li-ion ve LiFePO4 batarya sistemleri için özel paket üretimi de yapılmaktadır.</div></div></div>
-      <div class="faq-item"><div class="faq-q">Cihaza özel kablo üretebiliyor musunuz? <i class="fas fa-plus"></i></div><div class="faq-a"><div class="faq-a-inner">Evet. RS232, RS485, CAN Bus, UART, Ethernet ve cihaza özel konnektörlü kablolar üretilebilir. Konnektör tipi veya kablo şeması paylaşılarak sipariş verilebilir.</div></div></div>
-      <div class="faq-item"><div class="faq-q">Başka şehirden kargo ile gönderebilir miyim? <i class="fas fa-plus"></i></div><div class="faq-a"><div class="faq-a-inner">Evet, yurt içinin tüm şehirlerinden kargo ile ürün kabul edilmektedir. Göndermeden önce iletişime geçerek kargo sürecini birlikte planlamanız önerilir.</div></div></div>
-      <div class="faq-item"><div class="faq-q">STM32 veya ESP32 projeme yardım alabilir miyim? <i class="fas fa-plus"></i></div><div class="faq-a"><div class="faq-a-inner">Evet. Gömülü sistem tasarımı, firmware geliştirme, sensör entegrasyonu ve IoT dashboard geliştirme konularında danışmanlık ve proje desteği verilmektedir.</div></div></div>
-      <div class="faq-item"><div class="faq-q">Tamir için fatura / fiş kesiliyor mu? <i class="fas fa-plus"></i></div><div class="faq-a"><div class="faq-a-inner">Hizmet kapsamı ve fatura/makbuz bilgisi için doğrudan iletişime geçilmesi önerilir. Tüm işlemler karşılıklı anlaşma çerçevesinde yürütülmektedir.</div></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="container">
-    <div class="section-label"><i class="fas fa-envelope"></i> İletişim</div>
-    <h2 class="section-title">Benimle İletişime Geçin</h2>
-    <p class="section-desc">Cihazınız veya projeniz hakkında bilgi almak için aşağıdan ulaşabilirsiniz.</p>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="cinfo-card"><div class="cinfo-icon"><i class="fas fa-phone"></i></div><div><h4>Telefon</h4><p>+90 536 815 91 90</p></div></div>
-        <div class="cinfo-card"><div class="cinfo-icon"><i class="fas fa-envelope"></i></div><div><h4>E-posta</h4><p>atakanbyildirim@gmail.com</p></div></div>
-        <div class="cinfo-card"><div class="cinfo-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Konum</h4><p>İstanbul / Küçükçekmece</p></div></div>
-        <a href="https://wa.me/905368159190" target="_blank" class="wa-btn"><i class="fab fa-whatsapp" style="font-size:1.3rem"></i> WhatsApp ile Yazın</a>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem">
-          <div style="display:flex;align-items:center;gap:.5rem;color:var(--accent);font-weight:700;font-size:.88rem;margin-bottom:.5rem"><i class="fas fa-clock"></i> Çalışma Saatleri</div>
-          <p style="color:var(--muted);font-size:.82rem;margin:0">Pazartesi – Cumartesi: 09:00 – 18:00<br>Pazar: Randevuya göre</p>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <h3>Beyaz Eşya Teknik Servis Desteği</h3>
+            <ul>
+              <li>Çamaşır makinesi, bulaşık makinesi, buzdolabı, fırın, kurutma ve ankastre cihazlar için elektronik arıza ön değerlendirmesi</li>
+              <li>Ana kart, ekran kartı, güç besleme, röle, triyak, motor sürücü ve sensör hattı kontrolleri</li>
+              <li>Model, hata kodu ve fotoğraf üzerinden ilk yönlendirme</li>
+              <li>Kart söküm/gönderim, randevu ve servis destek süreci</li>
+            </ul>
+            <a class="btn btn-primary btn-small" href="#iletisim">Beyaz eşya desteği al</a>
+          </div>
+          <div class="guide-item">
+            <h3>Kombi Teknik Servis Desteği</h3>
+            <ul>
+              <li>Kombi kartı besleme, ateşleme, iyonizasyon, röle, triyak, fan, pompa ve sensör hattı incelemesi</li>
+              <li>Hata kodu, cihaz modeli ve kart fotoğrafıyla ön değerlendirme</li>
+              <li>Elektronik kart tamiri, kart değişim değerlendirmesi ve servis yönlendirmesi</li>
+              <li>Gaz hattı, baca, gaz kaçağı ve yanma ayarı gibi güvenlik gerektiren işlemlerde yetkili servis yönlendirmesi</li>
+            </ul>
+            <a class="btn btn-primary btn-small" href="#iletisim">Kombi desteği al</a>
+          </div>
         </div>
       </div>
-      <div class="contact-form">
-        <h3><i class="fas fa-paper-plane" style="color:var(--accent);margin-right:.5rem"></i>Mesaj Gönderin</h3>
-        <form id="contactForm" onsubmit="handleForm(event)">
-          <div class="form-row">
-            <div class="fg"><label>Ad Soyad *</label><input type="text" required placeholder="Adınız Soyadınız"></div>
-            <div class="fg"><label>Telefon *</label><input type="tel" required placeholder="05XX XXX XX XX"></div>
+    </section>
+
+    <section id="ariza-secici">
+      <div class="container">
+        <div class="section-head center">
+          <h2>Arızanı seç, doğru hizmete git</h2>
+          <p>Teknik terimi bilmiyorsan sorun değil. Belirtiyi seç, destek formunda ilgili hizmet otomatik seçilsin.</p>
+        </div>
+
+        <div class="fault-grid">
+          <button class="fault-card" type="button" data-service="ECU / Beyin Tamiri" data-message="Araç çalışmıyor veya arıza lambası yanıyor. ECU / beyin arıza tespiti için destek istiyorum.">
+            <strong>🚗 Araç çalışmıyor / arıza lambası yanıyor</strong>
+            <span>ECU, sensör, haberleşme veya araç elektrik arızası olabilir.</span>
+          </button>
+          <button class="fault-card" type="button" data-service="Kombi Kartı Tamiri" data-message="Kombi çalışmıyor veya hata veriyor. Kombi kartı kontrolü ve servis destek için bilgi almak istiyorum.">
+            <strong>🔥 Kombi çalışmıyor / hata veriyor</strong>
+            <span>Ateşleme, röle, fan, pompa, gaz valfi, NTC veya besleme arızası olabilir.</span>
+          </button>
+          <button class="fault-card" type="button" data-service="Beyaz Eşya Kartı Tamiri" data-message="Beyaz eşya elektronik kartında arıza var. Çamaşır/bulaşık/buzdolabı/fırın/kurutma makinesi kartı için destek istiyorum.">
+            <strong>🧺 Beyaz eşya çalışmıyor / hata kodu veriyor</strong>
+            <span>Çamaşır, bulaşık, buzdolabı, fırın veya kurutma makinesi kart arızası olabilir.</span>
+          </button>
+          <button class="fault-card" type="button" data-service="Klima ve İnverter Kart Tamiri" data-message="Klima veya inverter kart arızası için destek istiyorum. İç/dış ünite, fan, kompresör sürücü veya haberleşme problemi olabilir.">
+            <strong>❄️ Klima çalışmıyor / dış ünite devreye girmiyor</strong>
+            <span>İnverter kart, IPM güç katı, sensör veya haberleşme hattı incelenir.</span>
+          </button>
+          <button class="fault-card" type="button" data-service="Elektronik Kart Tamiri" data-message="Elektronik kartta yanık, kısa devre, oksitlenme veya çalışma problemi var. Kart tamiri için destek istiyorum.">
+            <strong>🔧 Kart yanmış / su almış / çalışmıyor</strong>
+            <span>PCB, SMD komponent, kısa devre veya besleme hattı kontrol edilir.</span>
+          </button>
+          <button class="fault-card" type="button" data-service="Akü ve Batarya Sistemleri" data-message="Akü veya batarya hızlı bitiyor. Kapasite, BMS ve şarj hattı kontrolü için destek istiyorum.">
+            <strong>🔋 Akü veya batarya hızlı bitiyor</strong>
+            <span>Kapasite, iç direnç, BMS ve şarj sistemi değerlendirilir.</span>
+          </button>
+          <button class="fault-card" type="button" data-service="Haberleşme Kablosu Üretimi" data-message="Cihazlar arasında haberleşme problemi var veya özel kablo gerekiyor. Kablo/test desteği istiyorum.">
+            <strong>🔌 Cihaz haberleşmiyor / özel kablo lazım</strong>
+            <span>CAN, RS485, UART, OBD, pinout ve konnektör uyarlaması yapılır.</span>
+          </button>
+          <button class="fault-card" type="button" data-service="Endüstriyel Elektronik Tamiri" data-message="Makine, pano veya endüstriyel kart arızası için destek istiyorum.">
+            <strong>🏭 Makine veya pano elektronik arızası</strong>
+            <span>Endüstriyel kart, PLC I/O, röle, sensör ve güç modülleri incelenir.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="rehber" class="guide">
+      <div class="container">
+        <div class="section-head">
+          <h2>Hangi durumda hangi hizmet?</h2>
+          <p>Ziyaretçilerin problemi hızlı anlaması için kısa arıza rehberi.</p>
+        </div>
+
+        <div class="guide-grid">
+          <div class="guide-item">
+            <h3>Araç çalışmıyor veya arıza lambası yanıyor</h3>
+            <ul>
+              <li>ECU / beyin arıza tespiti</li>
+              <li>OBD arıza kodu değerlendirme</li>
+              <li>Sensör besleme ve sinyal kontrolü</li>
+              <li>CAN, LIN veya K-Line haberleşme kontrolü</li>
+            </ul>
           </div>
-          <div class="fg"><label>E-posta</label><input type="email" placeholder="ornek@email.com"></div>
-          <div class="fg"><label>Hizmet Kategorisi *</label>
-            <select required>
-              <option value="">Seçiniz...</option>
-              <option>Otomotiv Elektroniği (ECU / ABS / BCM)</option>
-              <option>Elektronik Kart Tamiri (Kombi / Güç Kaynağı / Endüstriyel)</option>
-              <option>Akü &amp; Batarya Sistemleri</option>
-              <option>Kablo &amp; Test Aparatı Üretimi</option>
-              <option>Gömülü Sistem &amp; IoT Projesi</option>
-              <option>Arıza Tespiti &amp; Ölçüm</option>
-              <option>Diğer / Emin Değilim</option>
-            </select>
+          <div class="guide-item">
+            <h3>Kombi çalışmıyor veya hata veriyor</h3>
+            <ul>
+              <li>Kombi kartı besleme devresi kontrolü</li>
+              <li>Ateşleme, iyonizasyon ve gaz valfi sürme devresi inceleme</li>
+              <li>Fan, pompa, röle, triyak ve sensör bağlantı kontrolü</li>
+              <li>Oksitlenme, yanık ve komponent arıza tespiti</li>
+            </ul>
           </div>
-          <div class="fg"><label>Mesajınız *</label><textarea required placeholder="Cihazınız, arıza belirtisi ve varsa hata kodu hakkında kısa bilgi veriniz..."></textarea></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:.95rem"><i class="fas fa-paper-plane"></i> Mesaj Gönder</button>
-        </form>
-        <div class="form-msg" id="formMsg"><i class="fas fa-check-circle"></i> Mesajınız alındı! En kısa sürede geri dönüş yapılacaktır.</div>
+          <div class="guide-item">
+            <h3>Beyaz eşya hata veriyor veya hiç çalışmıyor</h3>
+            <ul>
+              <li>Çamaşır ve bulaşık makinesi ana kart kontrolü</li>
+              <li>Buzdolabı, fırın, kurutma ve ankastre kart inceleme</li>
+              <li>SMPS besleme, röle, triyak, motor sürücü ve ekran kartı arızaları</li>
+              <li>Hata kodu, model bilgisi ve fotoğrafla ön değerlendirme</li>
+            </ul>
+          </div>
+          <div class="guide-item">
+            <h3>Akü veya batarya hızlı bitiyor</h3>
+            <ul>
+              <li>Voltaj, kapasite ve iç direnç kontrolü</li>
+              <li>BMS ve şarj hattı değerlendirme</li>
+              <li>UPS, scooter, robotik sistem batarya kontrolü</li>
+              <li>Güvenli batarya paketi üretimi veya değişim önerisi</li>
+            </ul>
+          </div>
+          <div class="guide-item">
+            <h3>Özel kablo veya test düzeneği gerekiyor</h3>
+            <ul>
+              <li>RS232, RS485, CAN, UART ve OBD kablo üretimi</li>
+              <li>Özel pinout ve konnektör uyarlama</li>
+              <li>ECU veya kart bench test kablosu</li>
+              <li>Sensör, cihaz ve saha bağlantı kabloları</li>
+            </ul>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <section id="hakkimda">
+      <div class="container about-grid">
+        <div class="profile-card">
+          <div class="avatar">AB</div>
+          <h2>Atakan Burak Yıldırım</h2>
+          <p>Elektrik Elektronik Mühendisi<br />ECU, Elektronik Kart ve Endüstriyel Elektronik Çözümleri</p>
+          <div class="badges">
+            <span class="badge">ECU / Beyin</span>
+            <span class="badge">Elektronik Kart</span>
+            <span class="badge">Kombi Kartı</span>
+            <span class="badge">Akü & BMS</span>
+            <span class="badge">Kablo Üretimi</span>
+            <span class="badge">IoT</span>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <div class="section-head" style="margin-bottom: 18px;">
+            <h2>Mühendislik bakışıyla arıza analizi, onarım ve üretim.</h2>
+          </div>
+          <p>
+            Elektronik arızalarda yalnızca parçayı değiştirmek yerine arızanın kaynağını anlamaya odaklanıyorum.
+            Besleme hatları, haberleşme devreleri, sensör girişleri, sürücü çıkışları, PCB yolları ve komponentler sistematik olarak incelenir.
+          </p>
+          <p>
+            ECU/beyin tamiri, elektronik kart onarımı, kombi kartı, akü-batarya sistemleri, özel kablo üretimi ve gömülü sistem çözümlerinde
+            ölçüm, test ve temiz işçilik prensibiyle çalışıyorum.
+          </p>
+          <p>
+            Amaç; güvenilir, test edilmiş, uzun ömürlü ve ihtiyaca uygun teknik çözümler sunmaktır.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="yetkinlikler" class="guide">
+      <div class="container">
+        <div class="section-head">
+          <h2>Teknik Yetkinlikler</h2>
+          <p>Arızayı yalnızca parça değişimi olarak değil; belirti, ölçüm, devre analizi ve kullanım koşuluyla birlikte değerlendiriyoruz.</p>
+        </div>
+
+        <div class="capability-grid">
+          <div class="capability-card">
+            <h3>Arıza Analizi</h3>
+            <ul>
+              <li>Belirti, hata kodu, cihaz modeli ve kart fotoğraflarıyla ön değerlendirme</li>
+              <li>Besleme hattı, kısa devre, oksitlenme, yanık komponent ve kopuk yol kontrolü</li>
+              <li>Haberleşme, sensör girişi, röle/triyak/MOSFET çıkışı ve sürücü devresi incelemesi</li>
+            </ul>
+          </div>
+          <div class="capability-card">
+            <h3>Komponent Seviyesi Onarım</h3>
+            <ul>
+              <li>SMD ve THT komponent değişimi, lehim çatlağı ve yol onarımı</li>
+              <li>SMPS, regülatör, diyot, kondansatör, MOSFET, röle, triyak ve sürücü katı kontrolleri</li>
+              <li>Onarım sonrası temel çalışma, besleme ve bağlantı kontrolleri</li>
+            </ul>
+          </div>
+          <div class="capability-card">
+            <h3>Servis ve Üretim Desteği</h3>
+            <ul>
+              <li>Beyaz eşya, kombi, ECU, akü/batarya ve endüstriyel kartlar için yönlendirme</li>
+              <li>RS232, RS485, CAN, UART, OBD ve özel pinout kablo üretimi</li>
+              <li>Kargo ile kart gönderimi, randevu, WhatsApp ön kontrol ve teknik servis destek süreci</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="surec">
+      <div class="container">
+        <div class="section-head">
+          <h2>Destek süreci nasıl işler?</h2>
+          <p>Talep oluşturulduktan sonra cihazın veya kartın durumu teknik olarak değerlendirilir.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Talep</h3>
+            <p>Hizmet seçilir, cihaz/kart modeli ve arıza belirtisi gönderilir.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Ön Değerlendirme</h3>
+            <p>Belirtilere göre arıza ihtimali ve izlenecek test adımları belirlenir.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Arıza Tespiti</h3>
+            <p>Besleme, haberleşme, sinyal, komponent ve bağlantı kontrolleri yapılır.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Onarım & Test</h3>
+            <p>Onarım sonrası çalışma kontrolü yapılarak teslim süreci tamamlanır.</p>
+          </div>
+        </div>
+
+        <div class="warning-box">
+          <strong>Güvenlik ve yasal uygunluk</strong>
+          <p>
+            Güvenlik sistemlerini devre dışı bırakmaya, kilometre/sayaç manipülasyonuna, emisyon iptallerine veya yasal olmayan yazılım müdahalelerine yönelik işlem yapılmaz. Şişmiş, delinmiş, yanık veya fiziksel hasarlı lityum bataryalarda onarım yerine güvenli değişim ve bertaraf önerilir. Kombi tarafında gaz hattı, baca, gaz kaçağı ve yanma ayarı gibi güvenlik gerektiren işlemler için yetkili servis yönlendirmesi yapılır.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sss" class="guide">
+      <div class="container">
+        <div class="section-head">
+          <h2>Sık sorulan sorular</h2>
+          <p>Müşterinin karar vermeden önce en çok merak ettiği konular.</p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-card">
+            <details open>
+              <summary>Fotoğraf göndererek ön değerlendirme yapılabilir mi?</summary>
+              <p>Evet. Kartın ön-arka yüz fotoğrafları, cihaz modeli, arıza belirtisi ve varsa hata kodu gönderilirse ön değerlendirme daha hızlı yapılır.</p>
+            </details>
+            <details>
+              <summary>Su almış veya oksitlenmiş kart tamir edilir mi?</summary>
+              <p>Oksitlenme seviyesi, PCB yol hasarı, komponent durumu ve kartın çalışma koşuluna göre değerlendirilir.</p>
+            </details>
+            <details>
+              <summary>ECU / beyin tamirinde hangi kontroller yapılır?</summary>
+              <p>Besleme hattı, soket-pin yapısı, haberleşme hattı, sensör girişleri, çıkış sürücüleri ve kart üzerindeki komponentler incelenir.</p>
+            </details>
+          </div>
+          <div class="faq-card">
+            <details open>
+              <summary>Kombi kartı arızası nasıl anlaşılır?</summary>
+              <p>Kombinin hiç çalışmaması, hata kodu vermesi, fan/pompa çıkışının çalışmaması, ateşleme yapmaması veya sigorta attırması kart arızası belirtisi olabilir.</p>
+            </details>
+            <details>
+              <summary>Akü veya batarya tamiri yapılıyor mu?</summary>
+              <p>Voltaj, kapasite, iç direnç, BMS ve şarj hattı kontrolü yapılır. Şişmiş, delinmiş, yanık veya fiziksel hasarlı lityum bataryalarda güvenli değişim önerilir.</p>
+            </details>
+            <details>
+              <summary>Beyaz eşya kartı tamiri yapılıyor mu?</summary>
+              <p>Evet. Çamaşır makinesi, bulaşık makinesi, buzdolabı, fırın, kurutma makinesi, ankastre ve bazı klima kartlarında besleme, röle, triyak, motor sürücü ve ekran/kontrol devresi arızaları incelenebilir.</p>
+            </details>
+            <details>
+              <summary>Servis desteği için ne göndermeliyim?</summary>
+              <p>Cihaz modeli, kartın ön-arka net fotoğrafları, hata kodu, arıza belirtisi, daha önce işlem görüp görmediği ve iletişim bilgisi ön değerlendirmeyi hızlandırır.</p>
+            </details>
+            <details>
+              <summary>Özel haberleşme kablosu üretilebilir mi?</summary>
+              <p>Evet. RS232, RS485, CAN, UART, OBD, sensör kablosu, test kablosu ve özel pinout kablolar hazırlanabilir.</p>
+            </details>
+          </div>
+          <div class="faq-card">
+            <details open>
+              <summary>Onarım süresi ne kadar?</summary>
+              <p>Arızanın tipine, komponent bulunabilirliğine ve test gereksinimine göre değişir. Ön değerlendirme sonrası tahmini süre paylaşılır.</p>
+            </details>
+            <details>
+              <summary>Yasal olmayan ECU işlemleri yapılıyor mu?</summary>
+              <p>Hayır. Kilometre/sayaç manipülasyonu, emisyon iptali, güvenlik sistemlerini devre dışı bırakma veya yetkisiz bypass işlemleri yapılmaz.</p>
+            </details>
+            <details>
+              <summary>Endüstriyel kartlar için destek veriliyor mu?</summary>
+              <p>Evet. Makine kontrol kartları, pano içi modüller, güç kaynakları, röle/sensör kartları ve özel test bağlantıları değerlendirilebilir.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="iletisim">
+      <div class="container">
+        <div class="section-head">
+          <h2>Destek talebi oluştur</h2>
+          <p>Hizmeti seç, cihaz/kart bilgilerini yaz ve arıza belirtisini açıkla. Böylece ilk değerlendirme daha hızlı yapılır.</p>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-info">
+            <div class="contact-item">
+              <span>Telefon / WhatsApp</span>
+              <strong>+90 536 815 9190</strong>
+            </div>
+            <div class="contact-item">
+              <span>E-posta</span>
+              <strong>yildirimelektronikdestek@gmail.com</strong>
+            </div>
+            <div class="contact-item">
+              <span>Konum</span>
+              <strong>İstanbul / Küçükçekmece</strong>
+            </div>
+            <div class="contact-item">
+              <span>Hızlı bilgi için gönderilecekler</span>
+              <strong>Fotoğraf, model bilgisi, hata kodu, arıza belirtisi ve cihazın bulunduğu ilçe</strong>
+            </div>
+          </div>
+
+          <form id="supportForm" action="https://formspree.io/f/mjglbvkp" method="POST">
+            <input type="hidden" name="_subject" value="YILDIRIM ELEKTRONİK - Yeni Destek Talebi" />
+            <div class="form-grid">
+              <input type="text" name="ad_soyad" placeholder="Adınız Soyadınız" required />
+              <input type="tel" name="telefon" placeholder="Telefon Numaranız" required />
+            </div>
+            <div class="form-grid">
+              <input type="email" name="email" placeholder="E-posta Adresiniz" />
+              <select id="serviceSelect" name="hizmet" required>
+                <option value="">Hizmet seçiniz</option>
+                <option>ECU / Beyin Tamiri</option>
+                <option>Araç Elektrik ve Elektronik Arıza Tespiti</option>
+                <option>Elektronik Kart Tamiri</option>
+                <option>Kombi Kartı Tamiri</option>
+                <option>Beyaz Eşya Kartı Tamiri</option>
+                <option>Klima ve İnverter Kart Tamiri</option>
+                <option>Servis Destek ve Ön Değerlendirme</option>
+                <option>Akü ve Batarya Sistemleri</option>
+                <option>Batarya Paketi ve Akü Grubu Üretimi</option>
+                <option>Haberleşme Kablosu Üretimi</option>
+                <option>Test Aparatı ve Bench Kablo Üretimi</option>
+                <option>Endüstriyel Elektronik Tamiri</option>
+                <option>Tarım, İş Makinesi ve Jeneratör Elektroniği</option>
+                <option>Güç Kaynağı ve Şarj Cihazı Tamiri</option>
+                <option>Gömülü Sistem ve IoT Çözümleri</option>
+                <option>Diğer</option>
+              </select>
+            </div>
+            <div class="form-grid">
+              <input id="deviceInput" type="text" name="cihaz_model" placeholder="Cihaz / kart / araç / batarya modeli" />
+              <select name="destek_turu">
+                <option value="">Destek türü seçiniz</option>
+                <option>Telefon / WhatsApp ön değerlendirme</option>
+                <option>Kargo ile kart gönderimi</option>
+                <option>Randevu / servis destek talebi</option>
+                <option>Yerinde ön kontrol talebi</option>
+              </select>
+            </div>
+            <textarea name="mesaj" placeholder="Arıza belirtisini yazın. Örn: cihaz çalışmıyor, hata kodu veriyor, su aldı, sigorta attırıyor, kombi ateşleme yapmıyor, beyaz eşya program başlatmıyor, klima dış ünite devreye girmiyor..." required></textarea>
+            <div id="formStatus" class="form-status" aria-live="polite"></div>
+            <button class="btn btn-primary" type="submit">Talebi Gönder</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/905368159190?text=Merhaba%2C%20YILDIRIM%20ELEKTRON%C4%B0K%20i%C3%A7in%20destek%20almak%20istiyorum.%20Ar%C4%B1zal%C4%B1%20kart%2Fcihaz%20hakk%C4%B1nda%20bilgi%20payla%C5%9Faca%C4%9F%C4%B1m." target="_blank" rel="noopener">
+    💬 WhatsApp Destek
+  </a>
+
+  <div id="detailModal" class="detail-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="detail-content">
+      <div class="detail-header">
+        <h3 id="detailTitle">Hizmet detayı</h3>
+        <button id="detailClose" class="detail-close" type="button" aria-label="Kapat">×</button>
+      </div>
+      <div id="detailBody"></div>
+      <a class="btn btn-primary" href="#iletisim" id="detailRequest">Bu hizmet için destek talep et</a>
     </div>
   </div>
-</section>
 
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-logo"><span>ABY</span> Elektronik</div>
-        <p style="margin-top:.35rem">Atakan Burak Yıldırım – Elektrik Elektronik Mühendisi</p>
-      </div>
-      <div class="footer-links">
-        <a href="#about">Hakkımda</a>
-        <a href="#services">Hizmetler</a>
-        <a href="#fault">Arıza Seçici</a>
-        <a href="#equip">Ekipman</a>
-        <a href="#faq">SSS</a>
-        <a href="#contact">İletişim</a>
-      </div>
+  <footer>
+    <div class="container footer-content">
+      <span>© 2026 Atakan Burak Yıldırım. Tüm hakları saklıdır.</span>
+      <span>Elektrik Elektronik Mühendisi | ECU, Kart Tamiri, Akü & Endüstriyel Elektronik</span>
     </div>
-    <div style="border-top:1px solid var(--border);margin-top:1.5rem;padding-top:1.25rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
-      <p>&copy; 2025 Atakan Burak Yıldırım. Tüm hakları saklıdır.</p>
-      <p>İstanbul / Küçükçekmece</p>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
-<!-- MODALS -->
-<div class="modal-overlay" id="modalOverlay" onclick="if(event.target==this)closeModal()">
-  <!-- M1: ECU -->
-  <div class="modal" id="m1">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>ECU / Beyin Tamiri</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Motor kontrol ünitesi donanımsal arıza analizi</li>
-      <li><i class="fas fa-check"></i> Su hasarı, kısa devre ve yanık izi onarımı</li>
-      <li><i class="fas fa-check"></i> Enjektör, ateşleme ve sensör sürücü entegre değişimi</li>
-      <li><i class="fas fa-check"></i> Güç besleme katı ve regülatör onarımı</li>
-      <li><i class="fas fa-check"></i> BDM/JTAG pinout üzerinden veri okuma/yazma desteği</li>
-      <li><i class="fas fa-check"></i> Onarım sonrası ECU bench testi ve pinout simülasyonu</li>
-    </ul>
-  </div>
-  <!-- M2: ABS/BCM -->
-  <div class="modal" id="m2">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>ABS / BCM / Gösterge Paneli</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Fren sistemi (ABS/ESP) pompa motoru sürücü onarımı</li>
-      <li><i class="fas fa-check"></i> BCM (Gövde Kontrol Modülü) aydınlatma, cam, kilit arızaları onarımı</li>
-      <li><i class="fas fa-check"></i> Gösterge paneli aydınlatma, LCD ekran ve ibre motoru arızaları onarımı</li>
-      <li><i class="fas fa-check"></i> Airbag (SRS) beyni donanımsal arıza tespiti</li>
-    </ul>
-  </div>
-  <!-- M3: Elektrik Arıza -->
-  <div class="modal" id="m3">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Araç Elektrik Arıza Tespiti</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Multimetre ve osiloskop ile tesisat açık/kısa devre tespiti</li>
-      <li><i class="fas fa-check"></i> Akü kaçağı (parazit akım) ölçümü ve kaynağının bulunması</li>
-      <li><i class="fas fa-check"></i> Sensör sinyallerinin (Krank, eksantrik, MAF, MAP, O2) osiloskop ile ölçümü</li>
-      <li><i class="fas fa-check"></i> Aktüatörlerin (Valfler, selenoidler, motorlar) elektriksel testi</li>
-    </ul>
-  </div>
-  <!-- M4: CAN/LIN -->
-  <div class="modal" id="m4">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>CAN / LIN Haberleşme Kontrolü</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Araç iletişim ağının topolojik olarak incelenmesi</li>
-      <li><i class="fas fa-check"></i> CAN High / CAN Low hatlarında voltaj ve direnç (120/60 ohm) ölçümü</li>
-      <li><i class="fas fa-check"></i> Osiloskop ile CAN/LIN veri paketlerinin sinyal kalitesi analizi</li>
-      <li><i class="fas fa-check"></i> İletişimi bozan (Gateway, modül çökmesi, kablo kopuğu) kaynağın tespiti</li>
-    </ul>
-  </div>
-  <!-- M5: Kombi -->
-  <div class="modal" id="m5">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Kombi Kartı Tamiri</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Yüksek voltaj veya yıldırım kaynaklı güç devresi arızaları</li>
-      <li><i class="fas fa-check"></i> Fan, pompa, gaz valfi sürememe (röle/triyak) problemleri</li>
-      <li><i class="fas fa-check"></i> Ateşleme ve iyonizasyon devresi donanımsal onarımı</li>
-      <li><i class="fas fa-check"></i> Sensör (NTC, basınç, akış) okuma hatalarının komponent düzeyinde giderilmesi</li>
-    </ul>
-  </div>
-  <!-- M6: Güç Kaynağı -->
-  <div class="modal" id="m6">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Güç Kaynağı (SMPS) Tamiri</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> AC/DC ve DC/DC konvertör arıza tespiti</li>
-      <li><i class="fas fa-check"></i> Patlamış MOSFET, IGBT, köprü diyot ve PWM entegre değişimi</li>
-      <li><i class="fas fa-check"></i> Şişmiş veya kurumuş elektrolitik kondansatörlerin ESR ölçümü ve değişimi</li>
-      <li><i class="fas fa-check"></i> Çıkış voltajında dalgalanma veya düşük akım problemlerinin çözümü</li>
-    </ul>
-  </div>
-  <!-- M7: Endüstriyel -->
-  <div class="modal" id="m7">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Endüstriyel Kart Onarımı</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> CNC, tekstil, ambalaj makinesi kontrol kartları onarımı</li>
-      <li><i class="fas fa-check"></i> PLC dijital/analog I/O (giriş/çıkış) arızaları tespiti</li>
-      <li><i class="fas fa-check"></i> Motor sürücüleri ve frekans inverterleri donanım onarımı</li>
-      <li><i class="fas fa-check"></i> Optokuplör yalıtımlı haberleşme ve kontrol hatlarının tamiri</li>
-    </ul>
-  </div>
-  <!-- M8: Röle/Sürücü -->
-  <div class="modal" id="m8">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Röle / Sürücü / Sensör Kartları</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Yapışık veya ömrünü doldurmuş elektromekanik / solid state röle değişimi</li>
-      <li><i class="fas fa-check"></i> Step, servo, fırçasız (BLDC) motor sürücü modüllerinin onarımı</li>
-      <li><i class="fas fa-check"></i> Analog sinyal yükseltici (Op-Amp) devrelerinin teşhisi</li>
-      <li><i class="fas fa-check"></i> Çeşitli I/O (giriş/çıkış) çoklayıcı ve arabirim kartlarının tamiri</li>
-    </ul>
-  </div>
-  <!-- M9: Akü Testi -->
-  <div class="modal" id="m9">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Akü Testi & Analizi</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Kurşun-asit (Sulu, AGM, Jel) akülerin SoH (Sağlık Durumu) ve SoC ölçümü</li>
-      <li><i class="fas fa-check"></i> Dinamik yük (Load Test) uygulaması ile gerçek CCA analizi</li>
-      <li><i class="fas fa-check"></i> Lityum batarya gruplarının kapasite ve deşarj eğrisi testleri</li>
-      <li><i class="fas fa-check"></i> Hücreler arası iç direnç dengesizliğinin tespiti</li>
-    </ul>
-  </div>
-  <!-- M10: BMS -->
-  <div class="modal" id="m10">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>BMS Kontrolü & Tamiri</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Batarya Yönetim Sistemi (BMS) kartlarında çıkış kapamama/açmama sorunu</li>
-      <li><i class="fas fa-check"></i> MOSFET array (güç katı) arızası tespiti ve değişimi</li>
-      <li><i class="fas fa-check"></i> Pasif veya aktif balans (dengeleme) fonksiyonunun testi</li>
-      <li><i class="fas fa-check"></i> Sensör telleri, NTC sıcaklık problarının kontrolü</li>
-    </ul>
-  </div>
-  <!-- M11: Batarya Üretimi -->
-  <div class="modal" id="m11">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Batarya Paketi Üretimi</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> İhtiyaca özel (voltaj, kapasite, boyut) Lityum-İyon (18650, 21700) paket tasarımı</li>
-      <li><i class="fas fa-check"></i> Yüksek döngü ömürlü LiFePO4 batarya gruplaması</li>
-      <li><i class="fas fa-check"></i> Punta kaynak makinesi ile düşük dirençli nikel şerit bağlantısı</li>
-      <li><i class="fas fa-check"></i> Uygun BMS seçimi ve büzüşen makaron (shrink) ile paketleme</li>
-    </ul>
-  </div>
-  <!-- M12: Özel Bataryalar -->
-  <div class="modal" id="m12">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>UPS / Scooter / Robotik Batarya</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Elektrikli scooter, bisiklet ve kaykaylar için lityum pil yenileme (re-cell)</li>
-      <li><i class="fas fa-check"></i> Kesintisiz güç kaynakları (UPS) için kurşun-asit veya lityum dönüşüm işlemleri</li>
-      <li><i class="fas fa-check"></i> Otonom robotik projeler, dronelar veya RC araçlar için yüksek deşarj kapasiteli batarya dizaynı</li>
-    </ul>
-  </div>
-  <!-- M13: RS232/CAN -->
-  <div class="modal" id="m13">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Haberleşme Kablosu Üretimi</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> RS232 (Seri), RS485, CAN Bus ve UART protokollerine uygun iletişim kabloları</li>
-      <li><i class="fas fa-check"></i> Blendajlı (ekranlı) kablo kullanımıyla yüksek gürültü direncine sahip endüstriyel üretim</li>
-      <li><i class="fas fa-check"></i> DB9, DB15, DB25, RJ45 veya endüstriyel tip konnektör montajı</li>
-      <li><i class="fas fa-check"></i> İsteğe bağlı USB çevirici entegrasyonu (FTDI, CH340, CP2102 tabanlı)</li>
-    </ul>
-  </div>
-  <!-- M14: Bench -->
-  <div class="modal" id="m14">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>ECU Bench Kablosu</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Motor kontrol ünitelerini masaüstünde (bench) çalıştırmak için güç ve haberleşme demeti</li>
-      <li><i class="fas fa-check"></i> OBD2 soket entegrasyonu ile teşhis cihazı veya programlayıcı bağlayabilme</li>
-      <li><i class="fas fa-check"></i> Pinout diyagramına uygun, izoleli ve etiketlenmiş uçlar</li>
-      <li><i class="fas fa-check"></i> Çeşitli ECU marka/modelleri için standart veya özel üretim seçenekleri</li>
-    </ul>
-  </div>
-  <!-- M15: Pinout -->
-  <div class="modal" id="m15">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Pinout Dönüştürücü / Adaptör</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Farklı cihaz standartlarını birbirine bağlayan özel konnektör adaptörleri</li>
-      <li><i class="fas fa-check"></i> Yanlış pin dizilimine sahip donanımlar için aracı (cross/straight) dönüştürücüler</li>
-      <li><i class="fas fa-check"></i> Sensörlerden kontrolcülere, sinyal seviyesi uyumlulaştıran kablolu çözümler</li>
-    </ul>
-  </div>
-  <!-- M16: Sensör Test -->
-  <div class="modal" id="m16">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Sensör Test Kablosu</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Osiloskop veya ölçü aleti bağlamak için sensör hatlarına "T" şeklinde giren breakout (ayırıcı) kablolar</li>
-      <li><i class="fas fa-check"></i> Kablo yalıtımını soymadan sinyal analizi yapmayı sağlayan soketli çözümler</li>
-      <li><i class="fas fa-check"></i> Sensör sinyali simüle etmek için potansiyometreli test aparatları</li>
-    </ul>
-  </div>
-  <!-- M17: STM32 -->
-  <div class="modal" id="m17">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>STM32 Geliştirme</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> ARM Cortex-M mimarisi (STM32) tabanlı özel devre tasarımı (Schematic & PCB)</li>
-      <li><i class="fas fa-check"></i> C dilinde HAL veya LL kütüphaneleri kullanılarak firmware (yazılım) geliştirme</li>
-      <li><i class="fas fa-check"></i> ADC, PWM, Timer, DMA ve haberleşme (I2C, SPI, UART, CAN) çevrebirimlerinin konfigürasyonu</li>
-      <li><i class="fas fa-check"></i> Donanımsal/yazılımsal hata ayıklama (Debug) ve sistem optimizasyonu</li>
-    </ul>
-  </div>
-  <!-- M18: ESP32 -->
-  <div class="modal" id="m18">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>ESP32 / IoT Projeleri</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> ESP32 veya ESP8266 kullanılarak WiFi / Bluetooth (BLE) bağlantılı IoT prototipleri</li>
-      <li><i class="fas fa-check"></i> Sensör verilerinin bulut (Cloud), MQTT sunucu veya yerel ağa aktarımı</li>
-      <li><i class="fas fa-check"></i> Uzaktan cihaz kontrolü (Röle tetikleme, motor sürme) uygulamaları</li>
-      <li><i class="fas fa-check"></i> Düşük güç tüketimli (Deep Sleep) pilli akıllı sensör tasarımları</li>
-    </ul>
-  </div>
-  <!-- M19: Raspberry -->
-  <div class="modal" id="m19">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Raspberry Pi / Mikrobilgisayar</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Linux tabanlı işletim sistemi (Raspbian) kurulumu ve ortam hazırlığı</li>
-      <li><i class="fas fa-check"></i> Python ile sensör/aktüatör kontrolü ve veri loglama scriptleri</li>
-      <li><i class="fas fa-check"></i> Görüntü işleme, kamera entegrasyonu veya mini kiosk ekran projeleri</li>
-      <li><i class="fas fa-check"></i> Yerel ağ üzerinden çalışan web sunucu arayüzleri</li>
-    </ul>
-  </div>
-  <!-- M20: Dashboard -->
-  <div class="modal" id="m20">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <h3>Sensör Veri Toplama & Dashboard</h3>
-    <ul class="modal-list">
-      <li><i class="fas fa-check"></i> Endüstriyel sensörlerden (Sıcaklık, nem, basınç vb.) eşzamanlı veri toplama</li>
-      <li><i class="fas fa-check"></i> Verilerin SD karta loglanması veya veritabanına aktarılması</li>
-      <li><i class="fas fa-check"></i> Grafikli, anlık durum göstergeli (Dashboard) kullanıcı arayüzleri tasarımı</li>
-      <li><i class="fas fa-check"></i> Kritik durumlarda SMS, e-posta veya bildirim ile uyarı (Alarm) senaryoları</li>
-    </ul>
-  </div>
-</div>
+  <script>
+    const searchInput = document.getElementById('serviceSearch');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const serviceCards = document.querySelectorAll('.service-card');
+    const resultCount = document.getElementById('resultCount');
+    const serviceSelect = document.getElementById('serviceSelect');
+    const deviceInput = document.getElementById('deviceInput');
+    let activeFilter = 'all';
 
-<script>
-// Nav
-var navToggle=document.getElementById('navToggle');
-var navLinks=document.getElementById('navLinks');
-navToggle.addEventListener('click',function(){navLinks.classList.toggle('open')});
-document.querySelectorAll('.nav-links a').forEach(function(a){
-  a.addEventListener('click',function(){navLinks.classList.remove('open')})
-});
+    function normalizeText(value) {
+      return value
+        .toLocaleLowerCase('tr-TR')
+        .replaceAll('ı', 'i')
+        .replaceAll('ğ', 'g')
+        .replaceAll('ü', 'u')
+        .replaceAll('ş', 's')
+        .replaceAll('ö', 'o')
+        .replaceAll('ç', 'c');
+    }
 
-// Services Tabs
-function switchTab(n){
-  document.querySelectorAll('.srv-tab').forEach(function(t){t.classList.remove('active')});
-  document.querySelectorAll('.srv-tab')[n].classList.add('active');
-  document.querySelectorAll('.srv-panel').forEach(function(p){p.classList.remove('active')});
-  document.getElementById('panel'+n).classList.add('active');
-}
+    function filterServices() {
+      const query = normalizeText(searchInput.value.trim());
+      let visibleCount = 0;
 
-// Fault Selector
-function showFault(id,el){
-  document.querySelectorAll('.fault-opt').forEach(function(o){o.classList.remove('selected')});
-  el.classList.add('selected');
-  document.getElementById('fault-empty').style.display='none';
-  document.querySelectorAll('.fault-answer').forEach(function(a){a.classList.remove('show')});
-  document.getElementById(id).classList.add('show');
-}
+      serviceCards.forEach(card => {
+        const category = card.dataset.category;
+        const text = normalizeText(card.innerText + ' ' + card.dataset.text + ' ' + card.dataset.service);
+        const categoryMatch = activeFilter === 'all' || category === activeFilter;
+        const searchMatch = !query || text.includes(query);
+        const isVisible = categoryMatch && searchMatch;
 
-// FAQ Accordion
-document.querySelectorAll('.faq-q').forEach(function(q){
-  q.addEventListener('click',function(){
-    var item=this.closest('.faq-item');
-    var isOpen=item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(function(i){
-      i.classList.remove('open');
-      i.querySelector('.faq-a').style.maxHeight=null;
+        card.classList.toggle('hidden', !isVisible);
+        if (isVisible) visibleCount++;
+      });
+
+      resultCount.textContent = visibleCount > 0
+        ? `${visibleCount} hizmet listeleniyor.`
+        : 'Aramana uygun hizmet bulunamadı. Destek talebinde “Diğer” seçeneğini kullanabilirsin.';
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        activeFilter = button.dataset.filter;
+        filterServices();
+      });
     });
-    if(!isOpen){
-      item.classList.add('open');
-      item.querySelector('.faq-a').style.maxHeight=item.querySelector('.faq-a').scrollHeight+'px';
+
+    searchInput.addEventListener('input', filterServices);
+
+    function selectServiceAndScroll(serviceName, message = '') {
+      serviceSelect.value = serviceName;
+      if (message) {
+        const messageBox = document.querySelector('textarea[name="mesaj"]');
+        messageBox.value = message;
+      }
+      document.getElementById('iletisim').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => deviceInput.focus({ preventScroll: true }), 450);
     }
-  });
-});
 
-// Modals
-function openModal(id){
-  document.querySelectorAll('.modal').forEach(function(m){m.style.display='none'});
-  document.getElementById(id).style.display='block';
-  document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeModal(){
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow='';
-}
+    document.querySelectorAll('.request-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.service-card');
+        selectServiceAndScroll(card.dataset.service);
+      });
+    });
 
-// Scroll Top
-window.addEventListener('scroll',function(){
-  var btn=document.getElementById('scrollTop');
-  if(window.scrollY>300)btn.classList.add('visible');else btn.classList.remove('visible');
-  
-  // Active nav
-  var scrollY=window.scrollY+100;
-  document.querySelectorAll('section[id]').forEach(function(s){
-    var top=s.offsetTop;
-    var h=s.offsetHeight;
-    var id=s.getAttribute('id');
-    var link=document.querySelector('.nav-links a[href="#'+id+'"]');
-    if(link){
-      if(scrollY>=top&&scrollY<top+h)link.style.color='var(--white)';
-      else link.style.color='';
+    document.querySelectorAll('.fault-card').forEach(button => {
+      button.addEventListener('click', () => {
+        selectServiceAndScroll(button.dataset.service, button.dataset.message);
+      });
+    });
+
+    const serviceDetails = {
+      'Beyaz Eşya Teknik Servis ve Kart Tamiri': ['Çamaşır, bulaşık, buzdolabı, fırın, kurutma ve ankastre cihazlarda kart kaynaklı arızalar değerlendirilir.', 'Program başlatmama, hata kodu, sigorta attırma, ekran gelmeme, motor/pompa/rezistans çıkışı sorunları incelenir.', 'Model, hata kodu ve kart fotoğrafıyla ön değerlendirme yapılır; ardından besleme, röle, triyak, motor sürücü ve ekran bağlantıları kontrol edilir.'],
+      'Kombi Teknik Servis ve Kart Tamiri': ['Kombi kartlarında besleme, ateşleme, iyonizasyon, röle, triyak, fan, pompa, gaz valfi sürme ve sensör hatları incelenir.', 'Hata kodu, cihaz modeli ve kart fotoğrafı ile ön değerlendirme yapılır.', 'Gaz hattı, baca, gaz kaçağı ve yanma ayarı gibi güvenlik gerektiren işlemlerde yetkili servis yönlendirmesi yapılır.'],
+      'Elektronik Kart Tamiri': ['Yanık, su alma, oksitlenme, kısa devre, sigorta attırma ve çalışmama durumlarında kart seviyesi arıza analizi yapılır.', 'Besleme hattı, regülatör, MOSFET, diyot, röle, triyak, kondansatör ve SMD komponentler kontrol edilir.', 'Gerekirse yol onarımı, komponent değişimi ve lehim/rework işlemleri uygulanır.'],
+      'ECU / Beyin Tamiri': ['Araç beyni, motor kontrol ünitesi, ABS/BCM ve elektronik kontrol modüllerinde besleme, haberleşme ve sürücü devreleri incelenir.', 'CAN, LIN, K-Line, soket-pin, oksitlenme, kısa devre ve yol hasarı durumları değerlendirilir.', 'Güvenlik sistemi iptali, kilometre manipülasyonu veya yasal olmayan yazılım işlemleri yapılmaz.'],
+      'Klima ve İnverter Kart Tamiri': ['Klima iç/dış ünite kartları, inverter sürücü katı, IPM/IGBT/MOSFET, fan motoru ve sensör hatları incelenir.', 'Haberleşme arızası, dış ünite devreye girmeme, kompresör sürücü arızası ve güç katı hasarı değerlendirilir.'],
+      'Kablo ve Haberleşme Çözümleri': ['RS232, RS485, CAN, UART, OBD, sensör ve özel pinout kablolar hazırlanır.', 'ECU bench kablosu, kombi kartı test kablosu, makine kartı test bağlantısı ve konnektör uyarlaması yapılabilir.'],
+      'Akü, Pil ve Batarya Sistemleri': ['Akü, pil grubu, batarya paketi, UPS, scooter ve robotik sistem bataryaları ön değerlendirmeye alınabilir.', 'Voltaj, kapasite, iç direnç, BMS, hücre dengesi, sigorta, kablolama ve şarj hattı kontrol edilir.', 'Şişmiş, delinmiş, yanmış veya fiziksel hasarlı lityum bataryalarda güvenli değişim önerilir.'],
+      'Endüstriyel Elektronik Tamiri': ['Makine kontrol kartı, pano içi modül, röle/sensör kartı, güç kaynağı, PLC I/O ve motor sürücü kartları değerlendirilebilir.', 'Besleme, çıkış sürücüleri, haberleşme, konnektör, kısa devre ve komponent arızaları incelenir.'],
+      'Gömülü Sistem ve IoT Çözümleri': ['STM32, ESP32, Arduino ve Raspberry Pi tabanlı sensör okuma, veri toplama, dashboard ve kontrol sistemleri geliştirilebilir.', 'Röle kontrol, uzaktan izleme, alarm, takip ve özel test aparatı/prototip çözümleri hazırlanabilir.']
+    };
+
+    const detailModal = document.getElementById('detailModal');
+    const detailTitle = document.getElementById('detailTitle');
+    const detailBody = document.getElementById('detailBody');
+    const detailClose = document.getElementById('detailClose');
+    const detailRequest = document.getElementById('detailRequest');
+    let activeDetailService = '';
+
+    function openDetailModal(serviceName) {
+      activeDetailService = serviceName;
+      detailTitle.textContent = serviceName;
+      const items = serviceDetails[serviceName] || ['Bu hizmet için detaylı bilgi almak üzere destek talebi oluşturabilirsin.'];
+      detailBody.innerHTML = `<p style="color: var(--muted);">Bu hizmet kapsamında yapılabilecek teknik kontroller:</p><ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+      detailModal.classList.add('open');
+      detailModal.setAttribute('aria-hidden', 'false');
     }
-  });
-});
 
-// Intersection Observer
-var observer=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
-},{threshold:.1});
-document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el)});
+    function closeDetailModal() {
+      detailModal.classList.remove('open');
+      detailModal.setAttribute('aria-hidden', 'true');
+    }
 
-// Form
-function handleForm(e){
-  e.preventDefault();
-  document.getElementById('contactForm').style.display='none';
-  document.getElementById('formMsg').style.display='block';
-}
-</script>
+    serviceCards.forEach(card => {
+      const actions = card.querySelector('.card-actions');
+      const detailButton = document.createElement('button');
+      detailButton.className = 'btn btn-small detail-btn';
+      detailButton.type = 'button';
+      detailButton.textContent = 'Detayları gör';
+      detailButton.addEventListener('click', () => openDetailModal(card.dataset.service));
+      actions.prepend(detailButton);
+    });
+
+    detailClose.addEventListener('click', closeDetailModal);
+    detailModal.addEventListener('click', event => {
+      if (event.target === detailModal) closeDetailModal();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeDetailModal();
+    });
+    detailRequest.addEventListener('click', () => {
+      closeDetailModal();
+      selectServiceAndScroll(activeDetailService);
+    });
+
+    const supportForm = document.getElementById('supportForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if (supportForm) {
+      supportForm.addEventListener('submit', async event => {
+        event.preventDefault();
+
+        const submitButton = supportForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        const formData = new FormData(supportForm);
+
+        formStatus.className = 'form-status';
+        formStatus.textContent = '';
+        submitButton.disabled = true;
+        submitButton.textContent = 'Gönderiliyor...';
+
+        try {
+          const response = await fetch(supportForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            formStatus.className = 'form-status success';
+            formStatus.textContent = 'Talebiniz başarıyla alındı. En kısa sürede sizinle iletişime geçilecektir.';
+            supportForm.reset();
+          } else {
+            formStatus.className = 'form-status error';
+            formStatus.textContent = 'Talep gönderilirken bir sorun oluştu. Lütfen WhatsApp üzerinden iletişime geçin veya daha sonra tekrar deneyin.';
+          }
+        } catch (error) {
+          formStatus.className = 'form-status error';
+          formStatus.textContent = 'Bağlantı hatası oluştu. Lütfen WhatsApp üzerinden iletişime geçin veya daha sonra tekrar deneyin.';
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      });
+    }
+
+    filterServices();
+  </script>
 </body>
 </html>
